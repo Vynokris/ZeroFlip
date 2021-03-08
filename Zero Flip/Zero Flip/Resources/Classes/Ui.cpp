@@ -4,6 +4,7 @@
 #include <SFML/Audio.hpp>
 
 #include <iostream>
+#include <fstream>
 
 
 #include "classes.h"
@@ -13,29 +14,76 @@
 // Constructor that initializes the game window.
 Ui::Ui()
 {
+	// Create the window.
 	window.create(sf::VideoMode(1920, 1080), "Zero Flip", sf::Style::Close);
 	window.setPosition(sf::Vector2i(-8, 0)); // For some reason x = 0 isn't the left part of the screen, so I move the window to x = -8.
 	// window.setMouseCursorVisible(false); // To hide the mouse pointer.
 
+	// Set the scoreboard texture, sprite and position.
+	scoreboard_texture.loadFromFile("Resources/Art/Indicator/scoreboard.png");
+	scoreboard_sprite.setTexture(scoreboard_texture);
+	scoreboard_sprite.setScale(game_board.board[0][0].scale, game_board.board[0][0].scale);
+	scoreboard_sprite.setPosition(65, 1080 / 2 - scoreboard_sprite.getGlobalBounds().height / 2);
+
+	// Set the font for all the text.
 	font.loadFromFile("Resources/Art/Font/dpcomic.ttf");
 
+	// Get the player's total score frome the saved file.
+	std::ifstream in("Resources/PlayerData/coins.txt");
+	std::string line;
+	while (std::getline(in, line)) {
+		total_score = std::stoi(line);
+	}
+	in.close();
+
+	// Set the font for the player's total score.
 	total_score_text.setFont(font);
-	total_score_text.setCharacterSize(70);
-	total_score_text.setFillColor(sf::Color::White);
-	total_score_text.setString("Total score: 0");
-	total_score_text.setPosition(30, 10);
+	total_score_text.setCharacterSize(130);
+	total_score_text.setFillColor(sf::Color(66, 66, 66));
+	total_score_text.setOutlineColor(sf::Color(193, 193, 193));
+	total_score_text.setOutlineThickness(3);
+	total_score_text.setPosition(125, 310);
 
+	// Set the text for the player's total score.
+	if (total_score > 999999) {
+		total_score_text.setString("999999");
+	}
+	else {
+		// Get the number of digits in the total score.
+		int temp = total_score;
+		int total_score_digit_num = 0;
+		while (temp > 0) {
+			temp /= 10;
+			total_score_digit_num++;
+		}
+		if (total_score == 0) {
+			total_score_digit_num = 1;
+		}
+		// Update the text for the player's total score.
+		std::string total_score_string = "";
+		for (int i = 0; i < 6 - total_score_digit_num; i++) {
+			total_score_string += "0";
+		}
+		total_score_text.setString(total_score_string + std::to_string(total_score));
+	}
+
+	// Set the font and text for the player's current score.
 	game_score_text.setFont(font);
-	game_score_text.setCharacterSize(70);
-	game_score_text.setFillColor(sf::Color::White);
-	game_score_text.setString("Score in current game: 1");
-	game_score_text.setPosition(30, 80);
+	game_score_text.setCharacterSize(130);
+	game_score_text.setFillColor(sf::Color(66, 66, 66));
+	game_score_text.setOutlineColor(sf::Color(193, 193, 193));
+	game_score_text.setOutlineThickness(3);
+	game_score_text.setString("000001");
+	game_score_text.setPosition(125, 530);
 
+	// Set the font and text for the player's current level.
 	game_lv_text.setFont(font);
-	game_lv_text.setCharacterSize(70);
-	game_lv_text.setFillColor(sf::Color::White);
-	game_lv_text.setString("Level 1");
-	game_lv_text.setPosition(1920 - (game_lv_text.getLocalBounds().width + 30), 10);
+	game_lv_text.setCharacterSize(120);
+	game_lv_text.setFillColor(sf::Color(66, 66, 66));
+	game_lv_text.setOutlineColor(sf::Color(193, 193, 193));
+	game_lv_text.setOutlineThickness(3);
+	game_lv_text.setString("01");
+	game_lv_text.setPosition(340, 680);
 };
 
 
@@ -78,7 +126,24 @@ void Ui::input_logic()
 				// Handle the player's score every time a card is flipped.
 				if (game_board.board[i][j].sprite.getScale().x <= 0) {
 					game_score *= game_board.board[i][j].val;
-					game_score_text.setString("Score in current game: " + std::to_string(game_score));
+
+					// Get the number of digits in the total score.
+					int temp = game_score;
+					int game_score_digit_num = 0;
+					while (temp > 0) {
+						temp /= 10;
+						game_score_digit_num++;
+					}
+					if (game_score == 0) {
+						game_score_digit_num = 1;
+					}
+
+					// Update the texts.
+					std::string game_score_string = "";
+					for (int k = 0; k < 6 - game_score_digit_num; k++) {
+						game_score_string += "0";
+					}
+					game_score_text.setString(game_score_string + std::to_string(game_score));
 				}
 
 
@@ -153,7 +218,7 @@ void Ui::input_logic()
 
 				game_score = 1;
 
-				game_score_text.setString("Score in current game: " + std::to_string(game_score));
+				game_score_text.setString("000001");
 			}
 		}
 	}
@@ -183,28 +248,51 @@ void Ui::game_logic()
 		total_score += game_score;
 		game_score = 1;
 
-		// Update the texts.
-		total_score_text.setString("Total score: " + std::to_string(total_score));
-		game_score_text.setString("Current game score: " + std::to_string(game_score));
+		// Update the text for the player's total score.
+		if (total_score > 999999) {
+			total_score_text.setString("999999");
+		}
+		else {
+			// Get the number of digits in the total score.
+			int temp = total_score;
+			int total_score_digit_num = 0;
+			while (temp > 0) {
+				temp /= 10;
+				total_score_digit_num++;
+			}
+			// Update the texts.
+			std::string total_score_string = "";
+			for (int i = 0; i < 6 - total_score_digit_num; i++) {
+				total_score_string += "0";
+			}
+			total_score_text.setString(total_score_string + std::to_string(total_score));
+		}
+		game_score_text.setString("000001");
 
 		// Reset the game to a higher level.
-		lv += 1;
+		if (lv < 99) {
+			lv += 1;
+		}
 		game_board.reset(lv);
 
 		// Update the game level text.
-		game_lv_text.setString("Level " + std::to_string(lv));
-		game_lv_text.setPosition(1920 - (game_lv_text.getLocalBounds().width + 30), 10);
+		if (lv < 10) {
+			game_lv_text.setString("0" + std::to_string(lv));
+		}
+		else {
+			game_lv_text.setString(std::to_string(lv));
+		}
 	}
 
 
 	// If the player has 0 score in the current game, it means he flipped a zero. In that case, end the current game.
-	if (game_score == 0 and not game_board.is_game_over) 
+	if (game_score == 0 and not game_board.is_game_over)
 	{
 		game_end_time = global_clock.getElapsedTime().asMilliseconds();
 
 		// Set the game over variable to true.
 		game_board.is_game_over = true;
-		
+
 		// Flip all the cards to their front and make the player go down in level by the number of cards he's flipped in this game.
 		int flipped_num = game_board.game_over() + 1;
 
@@ -213,10 +301,13 @@ void Ui::game_logic()
 		}
 
 		// Update the game level text.
-		game_lv_text.setString("Level " + std::to_string(lv));
-		game_lv_text.setPosition(1920 - (game_lv_text.getLocalBounds().width + 30), 10);
+		if (lv < 10) {
+			game_lv_text.setString("0" + std::to_string(lv));
+		}
+		else {
+			game_lv_text.setString(std::to_string(lv));
+		}
 	}
-
 	// If the game is over, make sure all the cards are flipped to the front.
 	else if (game_score == 0) {
 		game_board.flip_all('F');
@@ -229,11 +320,15 @@ void Ui::game_logic()
 void Ui::render()
 {
 	// Clear the game window.
-	window.clear(sf::Color::Black);
+	//window.clear(sf::Color(41, 164, 107));
+	window.clear(sf::Color(40, 40, 40));
 
 
 	// Render the game objects.
 	game_board.render(window);
+
+	// Render the scoreboard.
+	window.draw(scoreboard_sprite);
 
 	// Render the total score text.
 	window.draw(total_score_text);

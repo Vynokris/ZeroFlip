@@ -15,6 +15,7 @@ TODO:
 
 #include <iostream>
 #include <ctime>
+#include <fstream>
 
 
 #include "Resources/Classes/classes.h"
@@ -42,11 +43,15 @@ int main()
 		}
 	}*/
 
-
 	while (true)
 	{
 		// Stop the execution if the window is closed.
 		if (not ui.window.isOpen()) {
+			// Save the player's total score.
+			std::ofstream out("Resources/PlayerData/coins.txt");
+			out << ui.total_score;
+			out.close();
+
 			return 0;
 		}
 

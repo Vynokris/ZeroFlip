@@ -132,6 +132,67 @@ void GameBoard::render(sf::RenderWindow& window)
 // Resets the game board. Difficulty is based on the lv argument.
 void GameBoard::reset(int lv)
 {
+	// Reset the cards.
+	
+	// /*
+	// Pick a random number to be the score of the player if he gets all the 2s and 3s.
+	int end_score = rand() % (50 * lv) + 500 * lv;
+
+	// Find the number of 2s and 3s needed to make it the player's final score.
+	int card_values[4] = { 0, 0, 0, 0 };
+	while (true) {
+		if (end_score % 3 == 0) {
+			card_values[3] += 1;
+			end_score /= 3;
+		}
+		else if (end_score % 2 == 0) {
+			card_values[2] += 1;
+			end_score /= 2;
+		}
+		else if (end_score > 1) {
+			end_score -= 1;
+		}
+		else {
+			break;
+		}
+	}
+
+	// Find the number of 1s and 0s to add.
+	int current_card_num = card_values[2] + card_values[3];
+	if (lv <= 3) {
+		card_values[0] += (25 - current_card_num) / 3;
+	}
+	else {
+		card_values[0] += (25 - current_card_num) / 2;
+	}
+	current_card_num = card_values[0] + card_values[2] + card_values[3];
+	card_values[1] += 25 - current_card_num;
+
+	std::cout << "Number of 0s: " << card_values[0] << "\nNumber of 1s: " << card_values[1] << "\nNumber of 2s: " << card_values[2] << "\nNUmber of 3s: " << card_values[3] << "\n";
+
+	// Reset the cards.
+	int num_of_cards_to_reset = 25;
+	for (int y = 0; y < size; y++) {
+		for (int x = 0; x < size; x++) {
+			int rand_val = rand() % num_of_cards_to_reset;
+
+			int sum = 0;
+			for (int i = 0; i < 4; i++) {
+				sum += card_values[i];
+
+				if (rand_val <= sum) 
+				{
+					card_values[i] -= 1;
+					board[y][x].reset(i);
+					num_of_cards_to_reset -= 1;
+					i = 4;
+				}
+			}
+		}
+	}
+	// */
+
+	/*
 	// Array that gives the probability for each possible card value.
 	int prob_values[4] = { int(round(sin(float(lv+1) / 5) * 10)),
 						   int(round(cos(float(lv) / 5) * 10)),
@@ -149,6 +210,7 @@ void GameBoard::reset(int lv)
 		std::cout << prob_values[i] << " ";
 	}
 	std::cout << "\nprob_total: " << prob_total << "\n";
+	// */
 
 	/*
 	// Generating card values without rng, only shuffle.
@@ -185,7 +247,7 @@ void GameBoard::reset(int lv)
 	}
 	// */
 	
-	// /*
+	/*
 	// Generating card values with rng.
 	// Make a sorted copy of the probablity array.
 	int sorted_prob_values[4];

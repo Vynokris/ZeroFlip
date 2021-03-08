@@ -149,6 +149,8 @@ public:
 	int game_end_time = -100;				// This is the time when the user flips a 0.
 	int last_reset_time = -100;				// This is the last time when the game was reset.
 
+	sf::Texture scoreboard_texture;			// Texture used for the scoreboard.
+	sf::Sprite scoreboard_sprite;			// Sprite used for the scoreboard.
 	sf::Font font;							// The font used for all text in the ui.
 	sf::Text total_score_text;				// Shows the player's total score.
 	sf::Text game_score_text;				// Shows the player's score in the current game.
