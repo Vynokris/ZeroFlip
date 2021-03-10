@@ -159,13 +159,19 @@ void GameBoard::reset(int lv)
 
 	// Find the number of 1s and 0s to add.
 	int current_card_num = card_values[2] + card_values[3];
-	if (lv <= 3) {
+	if (lv < 4) {
 		card_values[0] += (25 - current_card_num) / 3;
 	}
-	else {
+	else if (lv < 10) {
 		card_values[0] += (25 - current_card_num) / 2;
 	}
-	current_card_num = card_values[0] + card_values[2] + card_values[3];
+	else if (lv < 30) {
+		card_values[0] += int(round((25 - current_card_num) / 1.5));
+	}
+	else {
+		card_values[0] += int(round((25 - current_card_num) / 1.2));
+	}
+	current_card_num += card_values[0];
 	card_values[1] += 25 - current_card_num;
 
 	std::cout << "Number of 0s: " << card_values[0] << "\nNumber of 1s: " << card_values[1] << "\nNumber of 2s: " << card_values[2] << "\nNUmber of 3s: " << card_values[3] << "\n";
