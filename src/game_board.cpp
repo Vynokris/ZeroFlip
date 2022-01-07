@@ -137,7 +137,7 @@ void GameBoard::render(sf::RenderWindow& window)
 void GameBoard::reset(int lv)
 {
     // Pick a random number to be the score of the player if he gets all the 2s and 3s.
-    int end_score = rand() % (50 * lv); // + 500 * lv;
+    int end_score = rand() % (50 * lv) + 500 * lv;
 
     std::cout << "\nLevel " << lv << "\nTotal score: " << end_score << "\n";
 
