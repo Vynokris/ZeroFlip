@@ -1,0 +1,6 @@
+*.out
+*.o
+*.d
+*.bin
+zero_flip
+push
