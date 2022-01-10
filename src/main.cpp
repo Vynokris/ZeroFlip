@@ -4,7 +4,8 @@
 
 /*
 TODO:
-- Make it so the game becomes increasingly more difficult with the increasing level. (Make it so that 1s are less and less common with the rising levels).
+- Create and animate Billy the Pumpkin.
+- Tweak the level generation to balance it a bit more.
 */
 
 
@@ -34,30 +35,27 @@ int main()
 
     while (true)
     {
-        if (ui.window.hasFocus())
+        // Stop the execution if the window is closed.
+        if (!ui.window.isOpen() || sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) 
         {
-            // Stop the execution if the window is closed.
-            if (!ui.window.isOpen() || sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) 
-            {
-                // Save the player's total score.
-                std::ofstream out("Resources/PlayerData/coins.txt");
-                out << ui.total_score;
-                out.close();
+            // Save the player's total score.
+            std::ofstream out("Resources/PlayerData/coins.txt");
+            out << ui.total_score;
+            out.close();
+            break;
+        }
 
-                return 0;
-            }
+        // Game loop.
+        if (ui.window.hasFocus() &&
+            ui.global_clock.getElapsedTime().asMilliseconds() - last_loop_time >= 5) // This makes the minimal frame duration 5 milliseconds, meaning the game is capped at 200 fps.
+        { 
+            last_loop_time = ui.global_clock.getElapsedTime().asMilliseconds();
 
-            // Game loop.
-            if (ui.global_clock.getElapsedTime().asMilliseconds() - last_loop_time >= 5) // This makes the minimal frame duration 5 milliseconds, meaning the game is capped at 200 fps.
-            { 
-                last_loop_time = ui.global_clock.getElapsedTime().asMilliseconds();
+            ui.input_logic();
 
-                ui.input_logic();
+            ui.game_logic();
 
-                ui.game_logic();
-
-                ui.render();
-            }
+            ui.render();
         }
     }
 

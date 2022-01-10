@@ -11,6 +11,28 @@
 #define SCALE 4.5
 
 
+// Draw the given texture onto the given rendertexture at the given coordinates.
+static inline void rendertextureDraw(sf::RenderTexture& rendertexture, sf::Texture& texture, int x, int y)
+{
+    sf::Sprite sprite;
+    sprite.setTexture(texture);
+    sprite.setPosition(x, y);
+    rendertexture.draw(sprite);
+    rendertexture.display();
+}
+// Draw the given texture onto the given rendertexture at the given coordinates.
+static inline void rendertextureDraw(sf::RenderTexture& rendertexture, std::string texturePath, int x, int y)
+{
+    sf::Texture texture;
+    texture.loadFromFile(texturePath);
+    sf::Sprite sprite;
+    sprite.setTexture(texture);
+    sprite.setPosition(x, y);
+    rendertexture.draw(sprite);
+    rendertexture.display();
+}
+
+
 
 class Card
 {
@@ -19,8 +41,12 @@ public:
     bool flipped = false; // Turns true if the card has been flipped by the player.
     int flipping = 0;     // Turns to 1 if the card is currently in the process of flipping, turns to 2 if the card has flipped but isn't back to its normal scale.
 
-    sf::Texture texture;  // The card's texture.
-    sf::Sprite sprite;    // The card's sprite.
+    int front_id;   // The selected card front color.
+    int back_id;    // The selected card back color.
+    int pattern_id; // The selected card back pattern.
+
+    sf::RenderTexture rendertexture;  // The card's texture.
+    sf::Sprite sprite;                // The card's sprite.
 
     // The bools in this array trurn true if the player used the memo to mark the card as the corresponding number. If marked[0] is true, the card has been marked as a 0 by the player.
     bool marked[4] = {
@@ -52,6 +78,9 @@ public:
 
     // Resets the card.
     void reset(int value);
+
+    // Reloads the card's textures.
+    void reloadTextures(int front, int back, int pattern);
 };
 
 
@@ -77,7 +106,6 @@ public:
     };
 
 
-
     // Gives the indicator a texture and sprite.
     Indicator();
 
@@ -96,14 +124,14 @@ public:
 class GameBoard
 {
 public:
-    Card board[5][5];						// This is the game board that holds all the flippable cards.
-    Indicator indicator[2][5];				// This is the array that holds all the indicators.
-    int size = 5;							// This is the width and height of the game board. Meaning it holds 5 rows of 5 cards.
+    Card board[5][5];          // This is the game board that holds all the flippable cards.
+    Indicator indicator[2][5]; // This is the array that holds all the indicators.
+    int size = 5;              // This is the width and height of the game board. Meaning it holds 5 rows of 5 cards.
 
-    bool is_game_over = false;				// This turns true if the player flipped a 0.
+    bool is_game_over = false; // This turns true if the player flipped a 0.
 
-    sf::Texture between_cards_texture;		// Texture for the lines in between the cards.
-    sf::Sprite  between_cards_sprite;		// Sprite  for the lines in between the cards.
+    sf::Texture between_cards_texture; // Texture for the lines in between the cards.
+    sf::Sprite  between_cards_sprite;  // Sprite  for the lines in between the cards.
 
 
     // Default constructor. Gives the right coordinates to each card.
@@ -123,6 +151,41 @@ public:
 
     // Resets the game board. Difficulty is based on the lv argument.
     void reset(int lv);
+
+    // Reloads the card textures with the new cosmetic ids.
+    void reloadCardTextures(int front, int back, int pattern);
+};
+
+
+
+#define SCOREBOARD_OFFSET 20
+#define GAME_BOARD_OFFSET 535
+
+
+
+class Shop
+{
+public:
+    sf::Texture pannel_texture; // Texture used for the shop.
+    sf::Sprite  pannel_sprite;  // Sprite  used for the shop.
+
+    int selected_items[3] = { 0, 0, 0 }; // The index of each of the selected items.
+
+    sf::Texture highlight_t;    // The texture of the highlight around the selected item.
+    sf::Sprite  highlight_s[3]; // The sprite  of the highlight around the selected item.
+
+    sf::Texture items_t[3][5]; // The textures of all of the shop items.
+    sf::Sprite  items_s[3][5]; // The sprites  of all of the shop items.
+
+
+    // Constructor that initializes the shop and its items.
+    Shop();
+
+    // Checks if the player changed his cosmetics. Returns true if he did.
+    bool update(sf::RenderWindow& window);
+
+    // Renders the shop and its items.
+    void render(sf::RenderWindow& window);
 };
 
 
@@ -130,41 +193,43 @@ public:
 class Ui
 {
 public:
-    sf::RenderWindow window;				// Game window onto which all game objects are rendered.
-    GameBoard game_board;					// Game board that holds all the flippable cards.
-    sf::Clock global_clock;					// Initialize the global internal clock of the game.
+    sf::RenderWindow window; // Game window onto which all game objects are rendered.
+    Shop shop;               // The game's shop.
+    GameBoard game_board;    // Game board that holds all the flippable cards.
+    sf::Clock global_clock;  // Initialize the global internal clock of the game.
 
-    int lv          = 1;					// This value determines the difficulty of the game board.
-    int total_score = 0;					// Total score of the user, to which the score of each round is added.
-    int game_score  = 1;					// Player's score in the current game, which gets multiplied by the value of every card flipped.
+    int lv          = 1; // This value determines the difficulty of the game board.
+    int total_score = 0; // Total score of the user, to which the score of each round is added.
+    int game_score  = 1; // Player's score in the current game, which gets multiplied by the value of every card flipped.
 
-    sf::Keyboard::Key keybindings[4] = {	// The keys the player can use to mark cards.
+    // The keys the player can use to mark cards.
+    sf::Keyboard::Key keybindings[4] = {
         sf::Keyboard::Numpad0,
         sf::Keyboard::Numpad1,
         sf::Keyboard::Numpad2,
         sf::Keyboard::Numpad3,
     };
 
-    int last_flip_time  = -100;				// This is the last time a card was flipped.
-    int last_mark_time  = -100;				// This is the last time the player marked a card with the memo.
-    int game_end_time   = -100;				// This is the time when the user flips a 0.
-    int last_reset_time = -100;				// This is the last time when the game was reset.
+    int last_flip_time  = -100; // This is the last time a card was flipped.
+    int last_mark_time  = -100; // This is the last time the player marked a card with the memo.
+    int game_end_time   = -100; // This is the time when the user flips a 0.
+    int last_reset_time = -100; // This is the last time when the game was reset.
 
-    sf::Texture cursor_texture;				// Texture used for the mouse cursor.
-    sf::Sprite  cursor_sprite;				// Sprite used for the mouse cursor.
+    sf::Font    font;             // The font used for all text in the ui.
+    sf::Text    title_text[2];    // Shows the game's name.
+    sf::Text    total_score_text; // Shows the player's total score.
+    sf::Text    game_score_text;  // Shows the player's score in the current game.
+    sf::Text    game_lv_text;     // Shows the level of the player's current game.
 
-    sf::Texture highlight_texture;			// Texture for the card hover highlight.
-    sf::Sprite  highlight_sprite;			// Sprite  for the card hover highlight.
-    int         highlight_alpha = 0;        // Set to 0 if the mouse is !on a card. Increases to 255 when it is.
+    sf::Texture cursor_texture; // Texture used for the mouse cursor.
+    sf::Sprite  cursor_sprite;  // Sprite  used for the mouse cursor.
 
-    sf::Texture scoreboard_texture;			// Texture used for the scoreboard.
-    sf::Sprite  scoreboard_sprite;			// Sprite used for the scoreboard.
+    sf::Texture highlight_texture;   // Texture for the card hover highlight.
+    sf::Sprite  highlight_sprite;    // Sprite  for the card hover highlight.
+    int         highlight_alpha = 0; // Set to 0 if the mouse is !on a card. Increases to 255 when it is.
 
-    sf::Font    font;						// The font used for all text in the ui.
-    sf::Text    title_text[2];				// Shows the game's name.
-    sf::Text    total_score_text;			// Shows the player's total score.
-    sf::Text    game_score_text;			// Shows the player's score in the current game.
-    sf::Text    game_lv_text;				// Shows the level of the player's current game.
+    sf::Texture scoreboard_texture; // Texture used for the scoreboard.
+    sf::Sprite  scoreboard_sprite;  // Sprite  used for the scoreboard.
 
 
     // Constructor that initializes the game window.

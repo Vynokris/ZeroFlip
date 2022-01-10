@@ -1,11 +1,3 @@
-#include <SFML/System.hpp>
-#include <SFML/Window.hpp>
-#include <SFML/Graphics.hpp>
-#include <SFML/Audio.hpp>
-
-#include <iostream>
-
-
 #include "classes.hpp"
 
 
@@ -13,8 +5,14 @@
 // Gives the card a texture and a sprite.
 Card::Card() 
 {
-    texture.loadFromFile("Resources/Art/Card/back.png");
-    sprite.setTexture(texture);
+    // texture.loadFromFile("Resources/Art/Card/Back/back" + std::to_string(back_id) + ".png");
+
+    // Create the card's render texture.
+    rendertexture.create(28, 28);
+    rendertextureDraw(rendertexture, "Resources/Art/Card/Back/back" + std::to_string(back_id) + ".png", 0, 0);
+
+    // Create the card's sprite.
+    sprite.setTexture(rendertexture.getTexture());
     sprite.setScale(SCALE, SCALE);
 }
 
@@ -35,45 +33,31 @@ void Card::mark_as(int num)
         // Invert the mark on the card for the given number.
         marked[num] = !marked[num];
 
-        // If the card was marked, update its texture accordingly.
-        if (marked[num]) {
-            sf::Image temp;
-            temp.loadFromFile("Resources/Art/Card/marked_" + std::to_string(num) + ".png");
-            // Paste it onto the card texture in the right place.
-            if (num == 0) {
-                texture.update(temp, 4, 4);
-            }
-            else if (num == 1) {
-                texture.update(temp, 20, 4);
-            }
-            else if (num == 2) {
-                texture.update(temp, 4, 19);
-            }
-            else {
-                texture.update(temp, 20, 19);
-            }
-            sprite.setTexture(texture);
+        // Choose the right texture texture.
+        std::string texturePath;
+        if (marked[num]) 
+            texturePath = "Resources/Art/Card/Markings/marked" + std::to_string(num) + ".png";
+        else 
+            texturePath = "Resources/Art/Card/Back/unmark" + std::to_string(back_id) + ".png";
+        
+        // Paste it onto the card rendertexture in the right place.
+        switch (num)
+        {
+        case 0:
+            rendertextureDraw(rendertexture, texturePath, 4, 4);
+            break;
+        case 1:
+            rendertextureDraw(rendertexture, texturePath, 20, 4);
+            break;
+        case 2:
+            rendertextureDraw(rendertexture, texturePath, 4, 19);
+            break;
+        case 3:
+            rendertextureDraw(rendertexture, texturePath, 20, 19);
+            break;
+        default:;
         }
-        // If the card was unmarked, update its texture accordingly.
-        else {
-            // Load the texture that will cover the marked number.
-            sf::Image temp;
-            temp.loadFromFile("Resources/Art/Card/unmark.png");
-            // Paste it onto the card texture in the right place.
-            if (num == 0) {
-                texture.update(temp, 4, 4);
-            }
-            else if (num == 1) {
-                texture.update(temp, 20, 4);
-            }
-            else if (num == 2) {
-                texture.update(temp, 4, 19);
-            }
-            else {
-                texture.update(temp, 20, 19);
-            }
-            sprite.setTexture(texture);
-        }
+        sprite.setTexture(rendertexture.getTexture());
     }
 }
 
@@ -82,87 +66,43 @@ void Card::mark_as(int num)
 // Renders the card's sprite onto the game window.
 void Card::render(sf::RenderWindow& window)
 {
-    /*
-    if (!flipped) {
-        // Add the mark number to the card's texture and sprite.
-        for (int i = 0; i < 4; i++) {
-            // If the user marked the card but the texture has yet to be updated.
-            if (marked[i] and !current_texture[i])
-            {
-                // Load the texture of the marked number.
-                sf::Image temp;
-                temp.loadFromFile("Resources/Art/Card/marked_" + std::to_string(i) + ".png");
-                // Paste it onto the card texture in the right place.
-                if (i == 0) {
-                    texture.update(temp, 4, 4);
-                }
-                else if (i == 1) {
-                    texture.update(temp, 20, 4);
-                }
-                else if (i == 2) {
-                    texture.update(temp, 4, 19);
-                }
-                else {
-                    texture.update(temp, 20, 19);
-                }
-                sprite.setTexture(texture);
-                current_texture[i] = true;
-            }
-
-            // If the user unmarked the card but the texture has yet to be updated.
-            else if (current_texture[i] and !marked[i])
-            {
-                // Load the texture that will cover the marked number.
-                sf::Image temp;
-                temp.loadFromFile("Resources/Art/Card/unmark.png");
-                // Paste it onto the card texture in the right place.
-                if (i == 0) {
-                    texture.update(temp, 4, 4);
-                }
-                else if (i == 1) {
-                    texture.update(temp, 20, 4);
-                }
-                else if (i == 2) {
-                    texture.update(temp, 4, 19);
-                }
-                else {
-                    texture.update(temp, 20, 19);
-                }
-                sprite.setTexture(texture);
-                current_texture[i] = true;
-            }
-        }
-    }*/
-
     // Animate the card flipping.
     if (flipping != 0) {
         // When the card hasn't flipped but is in the process of doing so.
-        if (sprite.getScale().x > 0 && flipping == 1) {
+        if (sprite.getScale().x > 0 && flipping == 1) 
+        {
             sprite.setScale(sf::Vector2f(float(sprite.getScale().x - 0.08), SCALE));
             sprite.setPosition(sf::Vector2f(float(sprite.getPosition().x + 0.25 * SCALE), sprite.getPosition().y));
         }
         // When the card flips.
-        else if (sprite.getScale().x <= 0) {
+        else if (sprite.getScale().x <= 0) 
+        {
             flipping = 2;
             flipped = !flipped;
             sprite.setScale(sf::Vector2f(float(sprite.getScale().x + 0.08), SCALE));
             sprite.setPosition(sf::Vector2f(float(sprite.getPosition().x - 0.25 * SCALE), sprite.getPosition().y));
 
             // Change the card texture.
-            if (flipped) {
-                texture.loadFromFile("Resources/Art/Card/front_" + std::to_string(val) + ".png");
+            if (flipped) 
+            {
+                rendertextureDraw(rendertexture, "Resources/Art/Card/Front/front" + std::to_string(front_id) + ".png", 0, 0);
+                rendertextureDraw(rendertexture, "Resources/Art/Card/Front/num"   + std::to_string(val)      + ".png", 10, 9);
             }
-            else {
-                texture.loadFromFile("Resources/Art/Card/back.png");
+            else 
+            {
+                rendertextureDraw(rendertexture, "Resources/Art/Card/Back/back"       + std::to_string(back_id)    + ".png", 0, 0);
+                rendertextureDraw(rendertexture, "Resources/Art/Card/Pattern/pattern" + std::to_string(pattern_id) + ".png", 6, 6);
             }
-            sprite.setTexture(texture);
+            sprite.setTexture(rendertexture.getTexture());
         }
         // When the card has finished flipping.
-        else if (sprite.getScale().x == SCALE && flipping == 2) {
+        else if (sprite.getScale().x == SCALE && flipping == 2) 
+        {
             flipping = 0;
         }
         // When the card hasn't finished flipping yet but is in the process of doing so.
-        else if (sprite.getScale().x > 0 && flipping == 2) {
+        else if (sprite.getScale().x > 0 && flipping == 2) 
+        {
             sprite.setScale(sf::Vector2f(float(sprite.getScale().x + 0.08), SCALE));
             sprite.setPosition(sf::Vector2f(float(sprite.getPosition().x - 0.25 * SCALE), sprite.getPosition().y));
         }
@@ -188,7 +128,39 @@ void Card::reset(int value)
         flip();
     }
     else {
-        texture.loadFromFile("Resources/Art/Card/back.png");
-        sprite.setTexture(texture);
+        rendertextureDraw(rendertexture, "Resources/Art/Card/Back/back" + std::to_string(back_id) + ".png", 0, 0);
+        rendertextureDraw(rendertexture, "Resources/Art/Card/Pattern/pattern" + std::to_string(pattern_id) + ".png", 6, 6);
+        sprite.setTexture(rendertexture.getTexture());
+    }
+}
+
+
+
+// Reloads the card's textures.
+void Card::reloadTextures(int front, int back, int pattern)
+{
+    front_id   = front;
+    back_id    = back;
+    pattern_id = pattern;
+
+    // Change the card texture.
+    if (flipped) 
+    {
+        rendertextureDraw(rendertexture, "Resources/Art/Card/Front/front" + std::to_string(front_id) + ".png", 0, 0);
+        rendertextureDraw(rendertexture, "Resources/Art/Card/Front/num"   + std::to_string(val)      + ".png", 10, 9);
+    }
+    else 
+    {
+        rendertextureDraw(rendertexture, "Resources/Art/Card/Back/back" + std::to_string(back_id) + ".png", 0, 0);
+        rendertextureDraw(rendertexture, "Resources/Art/Card/Pattern/pattern" + std::to_string(pattern_id) + ".png", 6, 6);
+    }
+    sprite.setTexture(rendertexture.getTexture());
+
+    // Add the markings back on the card.
+    sf::Vector2i markingPos[4] = { { 4, 4 }, { 20, 4 }, { 4, 19 }, { 20, 19 } };
+    for (int i = 0; i < 4; i++)
+    {
+        if (marked[i])
+            rendertextureDraw(rendertexture, "Resources/Art/Card/Markings/marked" + std::to_string(i) + ".png", markingPos[i].x, markingPos[i].y);
     }
 }

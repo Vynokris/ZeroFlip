@@ -20,22 +20,6 @@ Ui::Ui()
     window.setPosition(sf::Vector2i(-8, 0)); // For some reason x = 0 isn't the left part of the screen, so I move the window to x = -8.
     window.setMouseCursorVisible(false); // To hide the mouse pointer.
 
-    // Set the mouse cursor texture and sprite.
-    cursor_texture.loadFromFile("Resources/Art/Cursor/cursor.png");
-    cursor_sprite.setTexture(cursor_texture);
-    cursor_sprite.setScale(SCALE, SCALE);
-
-    // Load the texture and sprite of the card hover highlight.
-    highlight_texture.loadFromFile("Resources/Art/Card/highlight.png");
-    highlight_sprite.setTexture(highlight_texture);
-    highlight_sprite.setScale(SCALE, SCALE);
-
-    // Set the scoreboard texture, sprite and position.
-    scoreboard_texture.loadFromFile("Resources/Art/Indicator/scoreboard.png");
-    scoreboard_sprite.setTexture(scoreboard_texture);
-    scoreboard_sprite.setScale(SCALE, SCALE);
-    scoreboard_sprite.setPosition(65, 1080 / 2 - scoreboard_sprite.getGlobalBounds().height / 2);
-
     // Set the font for all the text.
     font.loadFromFile("Resources/Art/Font/dpcomic.ttf");
 
@@ -71,7 +55,7 @@ Ui::Ui()
     total_score_text.setFillColor(sf::Color(66, 66, 66));
     total_score_text.setOutlineColor(sf::Color(180, 180, 180));
     total_score_text.setOutlineThickness(3);
-    total_score_text.setPosition(125, 310);
+    total_score_text.setPosition(SCOREBOARD_OFFSET + 60, 310);
 
     // Set the text for the player's total score.
     if (total_score > 999999) {
@@ -95,7 +79,7 @@ Ui::Ui()
     game_score_text.setOutlineColor(sf::Color(180, 180, 180));
     game_score_text.setOutlineThickness(3);
     game_score_text.setString("000001");
-    game_score_text.setPosition(125, 530);
+    game_score_text.setPosition(SCOREBOARD_OFFSET + 60, 530);
 
     // Set the font and text for the player's current level.
     game_lv_text.setFont(font);
@@ -104,7 +88,23 @@ Ui::Ui()
     game_lv_text.setOutlineColor(sf::Color(180, 180, 180));
     game_lv_text.setOutlineThickness(3);
     game_lv_text.setString("01");
-    game_lv_text.setPosition(340, 680);
+    game_lv_text.setPosition(SCOREBOARD_OFFSET + 275, 680);
+
+    // Set the mouse cursor texture and sprite.
+    cursor_texture.loadFromFile("Resources/Art/Cursor/cursor.png");
+    cursor_sprite.setTexture(cursor_texture);
+    cursor_sprite.setScale(SCALE, SCALE);
+
+    // Load the texture and sprite of the card hover highlight.
+    highlight_texture.loadFromFile("Resources/Art/Card/Highlight/highlight.png");
+    highlight_sprite.setTexture(highlight_texture);
+    highlight_sprite.setScale(SCALE, SCALE);
+
+    // Set the scoreboard texture, sprite and position.
+    scoreboard_texture.loadFromFile("Resources/Art/GeneralUI/scoreboard.png");
+    scoreboard_sprite.setTexture(scoreboard_texture);
+    scoreboard_sprite.setScale(SCALE, SCALE);
+    scoreboard_sprite.setPosition(SCOREBOARD_OFFSET, 1080 / 2 - scoreboard_sprite.getGlobalBounds().height / 2);
 };
 
 
@@ -308,6 +308,12 @@ void Ui::input_logic()
                 highlight_alpha = clampAbove(highlight_alpha - 10, 0);
         }
 
+        // ---------- SHOP INTERACTION ---------- //
+
+        if (shop.update(window)) {
+            game_board.reloadCardTextures(shop.selected_items[0], shop.selected_items[1], shop.selected_items[2]);
+        }
+
         // If the player presses left click after a game over, reset the game board.
         if (global_clock.getElapsedTime().asMilliseconds() - game_end_time >= 600 && game_board.is_game_over) 
         {
@@ -448,6 +454,9 @@ void Ui::render()
 
     // Render the game level text.
     window.draw(game_lv_text);
+
+    // Render the shop.
+    shop.render(window);
 
     // Render the mouse cursor.
     window.draw(cursor_sprite);

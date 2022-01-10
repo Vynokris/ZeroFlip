@@ -15,14 +15,14 @@ using namespace Math;
 GameBoard::GameBoard() 
 {
     // The board is centered in a 1920x1080 screen.
-    float x = float(1920 / 2 - (28 * SCALE + 4 * SCALE) * 2.5);
-    float y = float(1080 / 2 - (28 * SCALE + 4 * SCALE) * 2.5);
+    float x = GAME_BOARD_OFFSET;
+    float y = float(1080 / 2 - ((28 + 4 )* SCALE) * 2.5);
     for (int i = 0; i < 5; i++) {
         for (int j = 0; j < 5; j++) {
-            board[i][j].sprite.setPosition(sf::Vector2f(x, y));
+            board[i][j].sprite.setPosition(x, y);
             x += 28 * SCALE + 4 * SCALE;
         }
-        x = float(1920 / 2 - (28 * SCALE + 4 * SCALE) * 2.5);
+        x = GAME_BOARD_OFFSET;
         y += 28 * SCALE + 4 * SCALE;
     }
 
@@ -30,7 +30,7 @@ GameBoard::GameBoard()
     for (int i = 0; i < 2; i++) {
         for (int j = 0; j < 5; j++) {
             indicator[i][j].set_row_col_index(j);
-            indicator[i][j].sprite.setPosition(sf::Vector2f(x, y));
+            indicator[i][j].sprite.setPosition(x, y);
             if (i == 0) {
                 x += 28 * SCALE + 4 * SCALE;
             }
@@ -38,15 +38,15 @@ GameBoard::GameBoard()
                 y += 28 * SCALE + 4 * SCALE;
             }
         }
-        x = float(1920 / 2 + (28 * SCALE + 4 * SCALE) * 2.5);
+        x = GAME_BOARD_OFFSET + (28 * SCALE + 4 * SCALE) * 5;
         y = float(1080 / 2 - (28 * SCALE + 4 * SCALE) * 2.5);
     }
 
     // Load the texture and sprite of the lines between the cards.
-    between_cards_texture.loadFromFile("Resources/Art/Card/between_cards.png");
+    between_cards_texture.loadFromFile("Resources/Art/GeneralUI/between_cards.png");
     between_cards_sprite.setTexture(between_cards_texture);
     between_cards_sprite.setScale(SCALE, SCALE);
-    between_cards_sprite.setPosition(565, 145);
+    between_cards_sprite.setPosition(GAME_BOARD_OFFSET - 35, 145);
 
     // Start a new level 1 round.
     reset(1);
@@ -143,7 +143,8 @@ void GameBoard::reset(int lv)
 
     // Find the number of 2s and 3s needed to make it the player's final score.
     int card_values[4] = { 0, 0, 0, 0 };
-    while (true) {
+    while (true) 
+    {
         if (end_score % 3 == 0) {
             card_values[3] += 1;
             end_score /= 3;
@@ -324,4 +325,14 @@ void GameBoard::reset(int lv)
 
     // Reset the is_game_over variable.
     is_game_over = false;
+}
+
+
+
+// Reloads the card textures with the new cosmetic ids.
+void GameBoard::reloadCardTextures(int front, int back, int pattern)
+{
+    for (int i = 0; i < 5; i++)
+        for (int j = 0; j < 5; j++)
+            board[i][j].reloadTextures(front, back, pattern);
 }
