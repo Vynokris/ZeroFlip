@@ -1,15 +1,36 @@
-LIBS=-lsfml-graphics -lsfml-window -lsfml-system
+PROGRAM   = zero_flip
+OBJS      = src/main.o src/Math.o src/card.o src/gameBoard.o src/indicator.o src/shop.o src/ui.o src/billy.o
 
-all:
-	g++ -c "src/main.cpp" -o Build/main.o
-	g++ -c "src/Math.cpp" -o Build/Math.o
-	g++ -c "src/card.cpp" -o Build/card.o
-	g++ -c "src/game_board.cpp" -o Build/game_board.o
-	g++ -c "src/shop.cpp" -o Build/shop.o
-	g++ -c "src/indicator.cpp" -o Build/indicator.o
-	g++ -c "src/ui.cpp" -o Build/ui.o
-	g++ -o zero_flip Build/main.o Build/Math.o Build/card.o Build/game_board.o Build/shop.o Build/indicator.o Build/ui.o $(LIBS)
+CXX       = g++
+CXX_FLAGS = -O0 -g -lm -Wall -Wextra -Wno-unused-parameter -Wno-unused-variable
+CPP_FLAGS = -I./Resources/ThirdParty/include -MMD
+
+LIBS      = -lsfml-graphics -lsfml-window -lsfml-system
+
+ifeq ($(OS), Windows_NT)
+CXX_FLAGS += -m32 -std=c++17
+LIB_DIRS   = -L./Resources/ThirdParty/lib
+LIBS      += -lopengl32 -lwinmm -lgdi32
+LNK_FLAGS  = $(LIB_DIRS) $(LIBS)
+
+else
+LNK_FLAGS  = $(LIBS)
+endif
+
+DEPS=$(OBJS:.o=.d)
+
+.PHONY: all clean
+
+all: $(PROGRAM)
+
+-include $(DEPS)
+
+%.o: %.cpp
+	$(CXX) -c $< -o $@ $(CXX_FLAGS) $(CPP_FLAGS)
+
+$(PROGRAM): $(OBJS)
+	echo $(OS)
+	$(CXX) $^ -o $@ $(CXX_FLAGS) $(CPP_FLAGS) $(LNK_FLAGS)
 
 clean:
-	rm -rf Build/*
-	rm -f zero_flip
+	rm -f $(OBJS) $(DEPS) $(PROGRAM) && clear

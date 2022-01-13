@@ -7,8 +7,14 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
+#include <utility>
 
 #define SCALE 4.5
+
+#define SCOREBOARD_OFFSET 20
+#define GAME_BOARD_OFFSET 535
+
 
 
 // Draw the given texture onto the given rendertexture at the given coordinates.
@@ -31,6 +37,58 @@ static inline void rendertextureDraw(sf::RenderTexture& rendertexture, std::stri
     rendertexture.draw(sprite);
     rendertexture.display();
 }
+
+
+
+enum class GameEvent
+{
+    START_GAME,
+    FLIP_CARD,
+    MARK_CARD,
+    BUY_COSMETIC,
+    CHANGE_COSMETIC,
+    CLICKED_BILLY,
+};
+
+enum class BillyEmotions
+{
+    DEFAULT,
+    HAPPY,
+    SAD,
+};
+
+class Billy
+{
+public:
+    // Billy's current texture.
+    int current_texture = 0;
+
+    // Billy's current emotion.
+    BillyEmotions emotion = BillyEmotions::DEFAULT;
+
+    // List of the most recent actions performed by the player.
+    std::vector<std::pair<GameEvent, std::vector<int>>> gameEvents;
+
+    // Billy's texture and sprite.
+    sf::RenderTexture rendertexture;
+    sf::Sprite        sprite;
+
+
+    // Loads billy's texture and creates his sprite.
+    Billy();
+
+    // Adds a game event to billy's list so he can track what the player does.
+    void addEvent(GameEvent eventType, std::vector<int> data);
+
+    // Reload billy's texture.
+    void reloadTexture();
+
+    // Update billy.
+    void update();
+
+    // Draw billy on the window.
+    void render(sf::RenderWindow& window);
+};
 
 
 
@@ -88,21 +146,21 @@ public:
 class Indicator
 {
 public:
-    int row_col_index = -1;					// This is the index of the row/column of the indicator.
+    int index = -1;    // This is the index of the row/column of the indicator.
 
-    int card_sum = -1;						// The sum of the values of the cards that are on the row/column of this indicator.
-    int zero_num = -1;						// The number of zeros that are on the row/column of the indicator.
+    int card_sum = -1; // The sum of the values of the cards that are on the row/column of this indicator.
+    int zero_num = -1; // The number of zeros that are on the row/column of the indicator.
 
-    sf::Texture texture;					// The indicator's texture.
-    sf::Sprite sprite;						// The indicator's sprite.
+    sf::Texture texture; // The indicator's texture.
+    sf::Sprite sprite;   // The indicator's sprite.
 
-    sf::Texture num_texture;				// The texture for each number on the indicator.
-    sf::Sprite num_sprite;					// The sprite for each number on the indicator.
-    sf::RenderTexture num_rendertexture;	// The rendertexture for each number on the indicator.
-    int num_pos[3][2] = {					// The position of position of each number on the indicator.
-        {11, 2},
-        {19, 2}, 	  
-        {19, 15} 
+    sf::Texture num_texture;             // The texture for each number on the indicator.
+    sf::Sprite num_sprite;               // The sprite for each number on the indicator.
+    sf::RenderTexture num_rendertexture; // The rendertexture for each number on the indicator.
+    int num_pos[3][2] = {                // The position of position of each number on the indicator.
+        {11, 2}, 
+        {19, 2}, 
+        {19, 15}
     };
 
 
@@ -110,7 +168,7 @@ public:
     Indicator();
 
     // Sets the row/colmns of the indicator.
-    void set_row_col_index(int index);
+    void set_index(int new_index);
 
     // Renders the indicator's sprite onto the game window.
     void render(sf::RenderWindow& window);
@@ -158,11 +216,6 @@ public:
 
 
 
-#define SCOREBOARD_OFFSET 20
-#define GAME_BOARD_OFFSET 535
-
-
-
 class Shop
 {
 public:
@@ -194,6 +247,7 @@ class Ui
 {
 public:
     sf::RenderWindow window; // Game window onto which all game objects are rendered.
+    Billy billy;             // Billy the pumpkin.
     Shop shop;               // The game's shop.
     GameBoard game_board;    // Game board that holds all the flippable cards.
     sf::Clock global_clock;  // Initialize the global internal clock of the game.

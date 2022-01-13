@@ -1,9 +1,3 @@
-#include <SFML/System.hpp>
-#include <SFML/Window.hpp>
-#include <SFML/Graphics.hpp>
-#include <SFML/Audio.hpp>
-
-#include <iostream>
 #include <fstream>
 
 #include "classes.hpp"
@@ -418,6 +412,9 @@ void Ui::game_logic()
     else if (game_score == 0) {
         game_board.flip_all('F');
     }
+
+    // Update billy.
+    billy.update();
 }
 
 
@@ -457,6 +454,9 @@ void Ui::render()
 
     // Render the shop.
     shop.render(window);
+
+    // Render billy.
+    billy.render(window);
 
     // Render the mouse cursor.
     window.draw(cursor_sprite);

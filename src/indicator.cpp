@@ -1,10 +1,3 @@
-#include <SFML/System.hpp>
-#include <SFML/Window.hpp>
-#include <SFML/Graphics.hpp>
-#include <SFML/Audio.hpp>
-
-#include <iostream>
-
 #include "classes.hpp"
 
 
@@ -24,11 +17,11 @@ Indicator::Indicator()
 
 
 // Sets the row/column index of the indicator
-void Indicator::set_row_col_index(int index)
+void Indicator::set_index(int new_index)
 {
-    row_col_index = index;
+    index = new_index;
 
-    texture.loadFromFile("Resources/Art/Indicator/column_row_" + std::to_string(row_col_index) + ".png");
+    texture.loadFromFile("Resources/Art/Indicator/column_row_" + std::to_string(index) + ".png");
 
     sprite.setTexture(texture);
 }
@@ -51,7 +44,7 @@ void Indicator::reset(int sum_of_cards, int num_of_zeros)
     zero_num = num_of_zeros;
 
     // Reset the texture.
-    texture.loadFromFile("Resources/Art/Indicator/column_row_" + std::to_string(row_col_index) + ".png");
+    texture.loadFromFile("Resources/Art/Indicator/column_row_" + std::to_string(index) + ".png");
 
     for (int i = 0; i < 3; i++)
     {
@@ -59,7 +52,7 @@ void Indicator::reset(int sum_of_cards, int num_of_zeros)
         num_rendertexture.clear();
 
         // Colored background.
-        num_texture.loadFromFile("Resources/Art/Indicator/background_" + std::to_string(row_col_index) + ".png");
+        num_texture.loadFromFile("Resources/Art/Indicator/background_" + std::to_string(index) + ".png");
         num_sprite.setTexture(num_texture);
         num_rendertexture.draw(num_sprite);
 
