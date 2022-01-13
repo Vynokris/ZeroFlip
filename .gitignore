@@ -1,6 +1,7 @@
-*.out
-*.o
-*.d
-*.bin
+**/*.out
+**/*.o
+**/*.d
+**/*.bin
 zero_flip
+zero_flip.exe
 push
