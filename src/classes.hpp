@@ -40,9 +40,10 @@ static inline void rendertextureDraw(sf::RenderTexture& rendertexture, std::stri
 
 
 
-enum class GameEvent
+enum class GameEvents
 {
     START_GAME,
+    END_GAME,
     FLIP_CARD,
     MARK_CARD,
     BUY_COSMETIC,
@@ -52,39 +53,50 @@ enum class GameEvent
 
 enum class BillyEmotions
 {
-    DEFAULT,
+    NORMAL,
     HAPPY,
     SAD,
+    CRYING,
+    DISAPPOINTED,
+    SMALL_FACE,
 };
 
 class Billy
 {
 public:
-    // Billy's current texture.
+    // Billy's current textures.
     int current_texture = 0;
+    int current_text    = -1;
+
+    // The number of frames until billy goes back to his normal emotion.
+    int emotion_cooldown = 0;
 
     // Billy's current emotion.
-    BillyEmotions emotion = BillyEmotions::DEFAULT;
+    BillyEmotions emotion = BillyEmotions::NORMAL;
 
     // List of the most recent actions performed by the player.
-    std::vector<std::pair<GameEvent, std::vector<int>>> gameEvents;
+    std::vector<std::pair<GameEvents, std::vector<int>>> gameEvents;
 
     // Billy's texture and sprite.
     sf::RenderTexture rendertexture;
     sf::Sprite        sprite;
+
+    // The texture and sprite for billy's text.
+    sf::Texture textTexture;
+    sf::Sprite  textSprite;
 
 
     // Loads billy's texture and creates his sprite.
     Billy();
 
     // Adds a game event to billy's list so he can track what the player does.
-    void addEvent(GameEvent eventType, std::vector<int> data);
+    void addEvent(GameEvents eventType, std::vector<int> data);
 
     // Reload billy's texture.
     void reloadTexture();
 
     // Update billy.
-    void update();
+    void update(sf::RenderWindow& window);
 
     // Draw billy on the window.
     void render(sf::RenderWindow& window);

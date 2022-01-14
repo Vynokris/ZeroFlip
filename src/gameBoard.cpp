@@ -58,7 +58,7 @@ bool GameBoard::game_won()
     bool output = true;
     for (int y = 0; y < 5; y++) {
         for (int x = 0; x < 5; x++) {
-            if ((board[y][x].val == 2 || board[y][x].val == 3) && !board[y][x].flipped) {
+            if ((board[y][x].val == 2 || board[y][x].val == 3) && (board[y][x].flipping == 1 || !board[y][x].flipped)) {
                 output = false;
                 x = 5;
                 y = 5;

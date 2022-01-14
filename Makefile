@@ -29,7 +29,6 @@ all: $(PROGRAM)
 	$(CXX) -c $< -o $@ $(CXX_FLAGS) $(CPP_FLAGS)
 
 $(PROGRAM): $(OBJS)
-	echo $(OS)
 	$(CXX) $^ -o $@ $(CXX_FLAGS) $(CPP_FLAGS) $(LNK_FLAGS)
 
 clean:
