@@ -1,9 +1,3 @@
-#include <SFML/System.hpp>
-#include <SFML/Window.hpp>
-#include <SFML/Graphics.hpp>
-#include <SFML/Audio.hpp>
-
-#include <iostream>
 #include <fstream>
 
 #include "classes.hpp"
@@ -105,6 +99,11 @@ Ui::Ui()
     scoreboard_sprite.setTexture(scoreboard_texture);
     scoreboard_sprite.setScale(SCALE, SCALE);
     scoreboard_sprite.setPosition(SCOREBOARD_OFFSET, 1080 / 2 - scoreboard_sprite.getGlobalBounds().height / 2);
+
+    // Set billy's position.
+    billy.sprite.setPosition(scoreboard_sprite.getPosition().x +  scoreboard_sprite.getGlobalBounds().width / 2 - billy.sprite.getGlobalBounds().width / 2, 
+                             scoreboard_sprite.getPosition().y - billy.sprite.getGlobalBounds().height + SCALE * 1.5);
+    billy.textSprite.setPosition(billy.sprite.getPosition().x, billy.sprite.getPosition().y - billy.textSprite.getGlobalBounds().height);
 };
 
 
@@ -112,7 +111,7 @@ Ui::Ui()
 // Processes user input and calls the corresponding functions.
 void Ui::input_logic()
 {
-    if (global_clock.getElapsedTime().asMilliseconds() - last_reset_time >= 600)
+    if (global_clock.getElapsedTime().asMilliseconds() - last_reset_time >= 600 && global_clock.getElapsedTime().asMilliseconds() - game_end_time >= 600)
     {
         auto mouse_pos = sf::Mouse::getPosition(window);           // Get the mouse position relative to the window.
         auto mouse_world_pos = window.mapPixelToCoords(mouse_pos); // Mouse position translated into world coordinates.
@@ -310,21 +309,51 @@ void Ui::input_logic()
 
         // ---------- SHOP INTERACTION ---------- //
 
-        if (shop.update(window)) {
+        if (shop.update(window))
             game_board.reloadCardTextures(shop.selected_items[0], shop.selected_items[1], shop.selected_items[2]);
-        }
 
-        // If the player presses left click after a game over, reset the game board.
+        
+        // ---------- GAME BOARD RESET AFTER GAME END ---------- //
+
         if (global_clock.getElapsedTime().asMilliseconds() - game_end_time >= 600 && game_board.is_game_over) 
         {
-            if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) {
+            if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
+            {
                 last_reset_time = global_clock.getElapsedTime().asMilliseconds();
 
+                // Update the game events.
+                billy.addEvent(GameEvents::START_GAME, std::vector<int>());
+
+                // If the player won.
+                if(game_score != 0)
+                {
+                    // Add the current game score to the total score and reset the game score.
+                    total_score = clampUnder(total_score + game_score, 999999);
+
+                    // Get the number of digits in the total score.
+                    int temp = total_score;
+                    int total_score_digit_num = 0;
+                    while (temp > 0) {
+                        temp /= 10;
+                        total_score_digit_num++;
+                    }
+                    // Update the text for the player's total score.
+                    std::string total_score_string = "";
+                    for (int i = 0; i < 6 - total_score_digit_num; i++) {
+                        total_score_string += "0";
+                    }
+                    total_score_text.setString(total_score_string + std::to_string(total_score));
+
+                    // Reset the game to a higher level.
+                    lv = clampUnder(lv + 1, 99);
+                }
+
+                // Reset the game board.
                 game_board.reset(lv);
-
+                game_board.is_game_over = false;
                 game_score = 1;
-
                 game_score_text.setString("000001");
+                game_lv_text.setString((lv < 10 ? "0" : "") + std::to_string(lv));
             }
         }
     }
@@ -345,79 +374,30 @@ void Ui::game_logic()
         }
     }
 
-    // If the player has flipped all the cards of value 2 or 3.
-    if (game_board.game_won() && global_clock.getElapsedTime().asMilliseconds() - last_reset_time >= 600 and !game_board.is_game_over)
-    {
-        last_reset_time = global_clock.getElapsedTime().asMilliseconds();
-
-        // Add the current game score to the total score and reset the game score.
-        total_score += game_score;
-        game_score = 1;
-
-        // Update the text for the player's total score.
-        if (total_score > 999999) {
-            total_score_text.setString("999999");
-        }
-        else {
-            // Get the number of digits in the total score.
-            int temp = total_score;
-            int total_score_digit_num = 0;
-            while (temp > 0) {
-                temp /= 10;
-                total_score_digit_num++;
-            }
-            // Update the texts.
-            std::string total_score_string = "";
-            for (int i = 0; i < 6 - total_score_digit_num; i++) {
-                total_score_string += "0";
-            }
-            total_score_text.setString(total_score_string + std::to_string(total_score));
-        }
-        game_score_text.setString("000001");
-
-        // Reset the game to a higher level.
-        if (lv < 99) {
-            lv += 1;
-        }
-        game_board.reset(lv);
-
-        // Update the game level text.
-        if (lv < 10) {
-            game_lv_text.setString("0" + std::to_string(lv));
-        }
-        else {
-            game_lv_text.setString(std::to_string(lv));
-        }
-    }
-
-
-    // If the player has 0 score in the current game, it means he flipped a zero. In that case, end the current game.
-    if (game_score == 0 && !game_board.is_game_over)
+    // If the game is finished.
+    if ((game_score == 0 || game_board.game_won()) && !game_board.is_game_over)
     {
         game_end_time = global_clock.getElapsedTime().asMilliseconds();
-
-        // Set the game over variable to true.
         game_board.is_game_over = true;
 
-        // Flip all the cards to their front and make the player go down in level by the number of cards he's flipped in this game.
-        int flipped_num = game_board.game_over() + 1;
-
-        if (flipped_num < lv) {
-            lv = flipped_num;
+        // Flip all the cards.
+        if (game_score == 0)
+        {
+            int flipped_num = game_board.game_over() + 1;
+            if (flipped_num < lv)
+                lv = flipped_num;
+        }
+        else
+        {
+            game_board.flip_all('F');
         }
 
-        // Update the game level text.
-        if (lv < 10) {
-            game_lv_text.setString("0" + std::to_string(lv));
-        }
-        else {
-            game_lv_text.setString(std::to_string(lv));
-        }
+        // Update the game events.
+        billy.addEvent(GameEvents::END_GAME, std::vector<int>{ (game_score == 0 ? 0 : 1) });
     }
-    // If the game is over, make sure all the cards are flipped to the front.
-    else if (game_score == 0) {
-        game_board.flip_all('F');
-    }
+
+    // Update billy.
+    billy.update(window);
 }
 
 
@@ -457,6 +437,9 @@ void Ui::render()
 
     // Render the shop.
     shop.render(window);
+
+    // Render billy.
+    billy.render(window);
 
     // Render the mouse cursor.
     window.draw(cursor_sprite);

@@ -1,13 +1,24 @@
 PROGRAM   = zero_flip
-OBJS      = src/main.o src/Math.o src/card.o src/game_board.o src/indicator.o src/shop.o src/ui.o
+OBJS      = src/main.o src/Math.o src/card.o src/gameBoard.o src/indicator.o src/shop.o src/ui.o src/billy.o
 
 CXX       = g++
 CXX_FLAGS = -O0 -g -m32 -std=c++17 -lm -Wall -Wextra -Wno-unused-parameter -Wno-unused-variable
+# CXX_FLAGS = -O0 -g -lm -Wall -Wextra -Wno-unused-parameter -Wno-unused-variable
 CPP_FLAGS = -I./Resources/ThirdParty/include -MMD
 
 LIB_DIRS  = -L./Resources/ThirdParty/lib
 LIBS      = -lsfml-graphics -lsfml-window -lsfml-system -lopengl32 -lwinmm -lgdi32
-LNK_FLAGS = $(LIB_DIRS) $(LIBS)
+# LIBS      = -lsfml-graphics -lsfml-window -lsfml-system
+
+ifeq ($(OS), Windows_NT)
+CXX_FLAGS += -m32 -std=c++17
+LIB_DIRS   = -L./Resources/ThirdParty/lib
+LIBS      += -lopengl32 -lwinmm -lgdi32
+LNK_FLAGS  = $(LIB_DIRS) $(LIBS)
+
+else
+LNK_FLAGS  = $(LIBS)
+endif
 
 DEPS=$(OBJS:.o=.d)
 

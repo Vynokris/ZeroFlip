@@ -3,8 +3,6 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 
-#include <iostream>
-
 #include "classes.hpp"
 #include "Math.hpp"
 using namespace Math;
@@ -29,7 +27,7 @@ GameBoard::GameBoard()
     // Give the right coordinates to each indicator.
     for (int i = 0; i < 2; i++) {
         for (int j = 0; j < 5; j++) {
-            indicator[i][j].set_row_col_index(j);
+            indicator[i][j].set_index(j);
             indicator[i][j].sprite.setPosition(x, y);
             if (i == 0) {
                 x += 28 * SCALE + 4 * SCALE;
@@ -60,7 +58,7 @@ bool GameBoard::game_won()
     bool output = true;
     for (int y = 0; y < 5; y++) {
         for (int x = 0; x < 5; x++) {
-            if ((board[y][x].val == 2 || board[y][x].val == 3) && !board[y][x].flipped) {
+            if ((board[y][x].val == 2 || board[y][x].val == 3) && (board[y][x].flipping == 1 || !board[y][x].flipped)) {
                 output = false;
                 x = 5;
                 y = 5;
