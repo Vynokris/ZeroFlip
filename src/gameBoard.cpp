@@ -58,7 +58,7 @@ bool GameBoard::game_won()
     bool output = true;
     for (int y = 0; y < 5; y++) {
         for (int x = 0; x < 5; x++) {
-            if ((board[y][x].val == 2 || board[y][x].val == 3) && (board[y][x].flipping == 1 || !board[y][x].flipped)) {
+            if ((board[y][x].val == 2 || board[y][x].val == 3) && (board[y][x].flipState != FlipStates::Normal || !board[y][x].flipped)) {
                 output = false;
                 x = 5;
                 y = 5;
@@ -70,19 +70,36 @@ bool GameBoard::game_won()
 
 
 
-// Flips over all the cards to the specified side ("B" for back, "F" for front).
-void GameBoard::flip_all(char side)
+// Flips over all the cards to the specified side ('B' for back, 'F' for front) and returns the number of cards that were already on the right side.
+int GameBoard::flip_all(char side)
 {
-    for (int y = 0; y < 5; y++) {
-        for (int x = 0; x < 5; x++) {
-            if (side == 'F' && !board[y][x].flipped) {
-                board[y][x].flip();
-            }
-            else if (side == 'B' && board[y][x].flipped) {
-                board[y][x].flip();
+    int card_count = 0;
+    for (int y = 0; y < size; y++) 
+    {
+        for (int x = 0; x < size; x++) 
+        {
+            switch (side)
+            {
+            case 'F':
+                if (!board[y][x].flipped && board[y][x].flipState == FlipStates::Normal)
+                    board[y][x].flip((x+y)*7);
+                else
+                    card_count++;
+                break;
+            
+            case 'B':
+                if (board[y][x].flipped && board[y][x].flipState == FlipStates::Normal)
+                    board[y][x].flip((x+y)*7);
+                else
+                    card_count++;
+                break;
+            
+            default:
+                break;
             }
         }
     }
+    return card_count;
 }
 
 
@@ -90,19 +107,7 @@ void GameBoard::flip_all(char side)
 // Flips over all the cards to their front side. Returns the number of cards the user had flipped in this game.
 int GameBoard::game_over()
 {
-    int flipped_num = 0;
-
-    for (int y = 0; y < 5; y++) {
-        for (int x = 0; x < 5; x++) {
-            if (!board[y][x].flipped) {
-                board[y][x].flip();
-            }
-            else if (board[y][x].flipped) {
-                flipped_num++;
-            }
-        }
-    }
-
+    int flipped_num = flip_all('F');
     return flipped_num;
 }
 
@@ -198,6 +203,9 @@ void GameBoard::reset(int lv)
             }
         }
     }
+
+    // Flip the cards to their back.
+    flip_all('B');
 
     /*
     // Array that gives the probability for each possible card value.

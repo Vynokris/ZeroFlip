@@ -12,6 +12,8 @@
 
 #define SCALE 4.5
 
+#define FPS 75
+#define DELTA_TIME 0.0133333
 #define SCOREBOARD_OFFSET 20
 #define GAME_BOARD_OFFSET 535
 
@@ -104,12 +106,23 @@ public:
 
 
 
+enum class FlipStates
+{
+    Normal,
+    PreFlip,
+    FlipEnd,
+    Flipping,
+    FlipStart,
+};
+
 class Card
 {
 public:
-    int val = -1;         // Value of the card. Either 0, 1, 2, or 3. It is set to -1 by default.
+    int  val = -1;        // Value of the card. Either 0, 1, 2, or 3. It is set to -1 by default.
     bool flipped = false; // Turns true if the card has been flipped by the player.
-    int flipping = 0;     // Turns to 1 if the card is currently in the process of flipping, turns to 2 if the card has flipped but isn't back to its normal scale.
+    int  flipDelay = -1;  // The amount of time before the card starts flipping.
+    FlipStates flipState = FlipStates::Normal; // Tracks the flipping of the card.
+    // Turns to 1 if the card is currently in the process of flipping, turns to 2 if the card has flipped but isn't back to its normal scale.
 
     int front_id;   // The selected card front color.
     int back_id;    // The selected card back color.
@@ -138,7 +151,7 @@ public:
     Card();
 
     // Flips the card over.
-    void flip();
+    void flip(int delay = -1);
 
     // Marks the card as either a 0, a 1, a 2 or a 3.
     void mark_as(int num);
@@ -210,8 +223,8 @@ public:
     // Returns true if the only cards that aren't flipped have 1 or 0 of value, false if not.
     bool game_won();
 
-    // Flips over all the cards to the specified side ('B' for back, 'F' for front).
-    void flip_all(char side);
+    // Flips over all the cards to the specified side ('B' for back, 'F' for front) and returns the number of cards that were already on the right side.
+    int flip_all(char side);
 
     // Flips over all the cards to their front side. Returns the number of cards the user had flipped in this game.
     int game_over();

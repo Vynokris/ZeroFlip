@@ -4,6 +4,8 @@
 
 /*
 TODO:
+- Fix the game end glitch (coins don't get updated and level doesn't increase)
+- Fix the first board reload glitch (it keeps the same values as before)
 - Create and animate Billy the Pumpkin.
 - Tweak the level generation to balance it a bit more.
 */
@@ -38,11 +40,10 @@ int main()
             break;
         }
 
-        // Game loop.
-        if (ui.window.hasFocus() &&
-            ui.global_clock.getElapsedTime().asMilliseconds() - last_loop_time >= 5) // This makes the minimal frame duration 5 milliseconds, meaning the game is capped at 200 fps.
+        // Game loop (capped at 75 fps).
+        if (ui.window.hasFocus() && ui.global_clock.getElapsedTime().asSeconds() - last_loop_time > DELTA_TIME)
         { 
-            last_loop_time = ui.global_clock.getElapsedTime().asMilliseconds();
+            last_loop_time = ui.global_clock.getElapsedTime().asSeconds();
 
             ui.input_logic();
 

@@ -19,9 +19,15 @@ Card::Card()
 
 
 // Flips the card over.
-void Card::flip()
+void Card::flip(int delay)
 {
-    flipping = 1;
+    if (delay > 0) {
+        flipDelay = delay;
+        flipState = FlipStates::PreFlip;
+    }
+    else {
+        flipState = FlipStates::FlipStart;
+    }
 }
 
 
@@ -66,21 +72,31 @@ void Card::mark_as(int num)
 // Renders the card's sprite onto the game window.
 void Card::render(sf::RenderWindow& window)
 {
+    // Decrease the flip delay.
+    if (flipDelay != -1) {
+        flipDelay--;
+    }
+    if (flipDelay == 0) {
+        flipDelay = -1;
+        flipState = FlipStates::FlipStart;
+    }
+
     // Animate the card flipping.
-    if (flipping != 0) {
+    if (flipState != FlipStates::Normal) 
+    {
         // When the card hasn't flipped but is in the process of doing so.
-        if (sprite.getScale().x > 0 && flipping == 1) 
+        if (sprite.getScale().x > 0 && flipState == FlipStates::FlipStart) 
         {
-            sprite.setScale(sf::Vector2f(float(sprite.getScale().x - 0.08), SCALE));
-            sprite.setPosition(sf::Vector2f(float(sprite.getPosition().x + 0.25 * SCALE), sprite.getPosition().y));
+            sprite.setScale(sf::Vector2f(float(sprite.getScale().x - 0.2), SCALE));
+            sprite.setPosition(sf::Vector2f(float(sprite.getPosition().x + 0.665 * SCALE), sprite.getPosition().y));
         }
         // When the card flips.
         else if (sprite.getScale().x <= 0) 
         {
-            flipping = 2;
+            flipState = FlipStates::Flipping;
             flipped = !flipped;
-            sprite.setScale(sf::Vector2f(float(sprite.getScale().x + 0.08), SCALE));
-            sprite.setPosition(sf::Vector2f(float(sprite.getPosition().x - 0.25 * SCALE), sprite.getPosition().y));
+            sprite.setScale(sf::Vector2f(float(sprite.getScale().x + 0.2), SCALE));
+            sprite.setPosition(sf::Vector2f(float(sprite.getPosition().x - 0.665 * SCALE), sprite.getPosition().y));
 
             // Change the card texture.
             if (flipped) 
@@ -95,16 +111,21 @@ void Card::render(sf::RenderWindow& window)
             }
             sprite.setTexture(rendertexture.getTexture());
         }
-        // When the card has finished flipping.
-        else if (sprite.getScale().x == SCALE && flipping == 2) 
+        // When the card starts flipping the other way.
+        else if (flipState == FlipStates::Flipping)
         {
-            flipping = 0;
+            flipState = FlipStates::FlipEnd;
+        }
+        // When the card has finished flipping.
+        else if (sprite.getScale().x >= SCALE && flipState == FlipStates::FlipEnd) 
+        {
+            flipState = FlipStates::Normal;
         }
         // When the card hasn't finished flipping yet but is in the process of doing so.
-        else if (sprite.getScale().x > 0 && flipping == 2) 
+        else if (sprite.getScale().x > 0 && flipState == FlipStates::FlipEnd) 
         {
-            sprite.setScale(sf::Vector2f(float(sprite.getScale().x + 0.08), SCALE));
-            sprite.setPosition(sf::Vector2f(float(sprite.getPosition().x - 0.25 * SCALE), sprite.getPosition().y));
+            sprite.setScale(sf::Vector2f(float(sprite.getScale().x + 0.2), SCALE));
+            sprite.setPosition(sf::Vector2f(float(sprite.getPosition().x - 0.665 * SCALE), sprite.getPosition().y));
         }
     }
 
@@ -124,6 +145,7 @@ void Card::reset(int value)
         current_texture[i] = false;
     }
 
+    /*
     if (flipped) {
         flip();
     }
@@ -132,6 +154,8 @@ void Card::reset(int value)
         rendertextureDraw(rendertexture, "Resources/Art/Card/Pattern/pattern" + std::to_string(pattern_id) + ".png", 6, 6);
         sprite.setTexture(rendertexture.getTexture());
     }
+    */
+    
 }
 
 

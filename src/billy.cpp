@@ -63,8 +63,8 @@ void Billy::update(sf::RenderWindow& window)
     }
 
     // Check if the player clicked billy.
-    auto mouse_pos = sf::Mouse::getPosition(window);
-    auto mouse_world_pos = window.mapPixelToCoords(mouse_pos);
+    sf::Vector2 mouse_pos = sf::Mouse::getPosition(window);
+    sf::Vector2 mouse_world_pos = window.mapPixelToCoords(mouse_pos);
     if (sprite.getGlobalBounds().contains(mouse_world_pos))
     {
         if (sf::Mouse::isButtonPressed(sf::Mouse::Left))

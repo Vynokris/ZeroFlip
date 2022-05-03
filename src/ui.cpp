@@ -13,6 +13,7 @@ Ui::Ui()
     window.create(sf::VideoMode(1920, 1080), "Zero Flip", sf::Style::Close);
     window.setPosition(sf::Vector2i(-8, 0)); // For some reason x = 0 isn't the left part of the screen, so I move the window to x = -8.
     window.setMouseCursorVisible(false); // To hide the mouse pointer.
+    window.setFramerateLimit(75);
 
     // Set the font for all the text.
     font.loadFromFile("Resources/Art/Font/dpcomic.ttf");
@@ -136,6 +137,7 @@ void Ui::input_logic()
                     // If the player left-clicked and the card isn't flipped and the player didn't already flip a card in the last 300 milliseconds.
                     if ((sf::Mouse::isButtonPressed(sf::Mouse::Left) )
                         && (!game_board.board[i][j].flipped)
+                        && (game_board.board[i][j].flipState == FlipStates::Normal)
                         && (global_clock.getElapsedTime().asMilliseconds() - last_flip_time >= 300))
                     {
                         // Flip the card.
@@ -194,11 +196,11 @@ void Ui::input_logic()
                                 {
                                     if (i == 0) {
                                         if (!game_board.board[k][j].flipped)
-                                            game_board.board[k][j].flip();
+                                            game_board.board[k][j].flip(5*7 - k*7);
                                     }
                                     else {
                                         if (!game_board.board[j][k].flipped)
-                                            game_board.board[j][k].flip();
+                                            game_board.board[j][k].flip(5*7 - k*7);
                                     }
                                 }
                                 last_flip_time = global_clock.getElapsedTime().asMilliseconds();
@@ -257,7 +259,7 @@ void Ui::input_logic()
 
                 // ---------- PLAYER SCORE UPDATE ---------- //
 
-                if (game_board.board[i][j].sprite.getScale().x <= 0) 
+                if (game_board.board[i][j].flipState == FlipStates::Flipping && game_board.board[i][j].flipped) 
                 {
                     game_score *= game_board.board[i][j].val;
 
@@ -325,7 +327,7 @@ void Ui::input_logic()
                 billy.addEvent(GameEvents::START_GAME, std::vector<int>());
 
                 // If the player won.
-                if(game_score != 0)
+                if(game_score != 0) // TODO: This conditions seems like it doesn't fire.
                 {
                     // Add the current game score to the total score and reset the game score.
                     total_score = clampUnder(total_score + game_score, 999999);
