@@ -1,0 +1,1192 @@
+make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --question
+# GNU Make 4.3
+# Built for Windows32
+# Copyright (C) 1988-2020 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+ 
+
+# Make data base, printed on Tue Jan 11 21:11:38 2022
+
+# Variables
+
+# environment
+FPS_BROWSER_APP_PROFILE_STRING = Internet Explorer
+# environment
+SYSTEMDRIVE = C:
+# environment
+JAVA_HOME = C:\Program Files\Java\jdk-14.0.1
+# environment
+LC_ALL = C
+# environment
+VBOX_HWVIRTEX_IGNORE_SVM_IN_USE = 1
+# environment
+OCULUSBASE = C:\Program Files\Oculus\
+# environment
+USERPROFILE = C:\Users\remis
+# environment
+VBOX_MSI_INSTALL_PATH = C:\Program Files\Oracle\VirtualBox\
+# environment
+LOCALAPPDATA = C:\Users\remis\AppData\Local
+# environment
+VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-4ee925f1-bd61-4bd6-a016-d2d36ede3bcd-sock
+# environment
+VSCODE_CWD = C:\Program Files\Microsoft VS Code
+# environment
+CHOCOLATEYINSTALL = C:\ProgramData\chocolatey
+# environment
+SYSTEMROOT = C:\Windows
+# makefile (from 'Makefile', line 9)
+LIBS = -lsfml-graphics -lsfml-window -lsfml-system -lopengl32 -lwinmm -lgdi32
+# environment
+PROCESSOR_LEVEL = 23
+# environment
+PSMODULEPATH = C:\Program Files\WindowsPowerShell\Modules;C:\Windows\system32\WindowsPowerShell\v1.0\Modules
+# default
+MAKE_COMMAND := C:/ProgramData/chocolatey/lib/make/tools/install/bin/make.exe
+# automatic
+@D = $(patsubst %/,%,$(patsubst %\,%,$(dir $@)))
+# environment
+QML_FORCE_DISK_CACHE = 0
+# environment
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_6492_AKHHZRMGLBUICVAG
+# environment
+FPS_BROWSER_USER_PROFILE_STRING = Default
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# default
+.VARIABLES := 
+# automatic
+%D = $(patsubst %/,%,$(patsubst %\,%,$(dir $%)))
+# automatic
+^D = $(patsubst %/,%,$(patsubst %\,%,$(dir $^)))
+# environment
+VSCODE_LOG_STACK = false
+# automatic
+%F = $(notdir $%)
+# environment
+VSCODE_CODE_CACHE_PATH = C:\Users\remis\AppData\Roaming\Code\CachedData\899d46d82c4c95423fb7e10e68eba52050e30ba3
+# environment
+LANG = C
+# default
+.LOADED := 
+# environment
+TMP = C:\Users\remis\AppData\Local\Temp
+# default
+.INCLUDE_DIRS = .
+# environment
+PROCESSOR_ARCHITEW6432 = AMD64
+# makefile (from 'Makefile', line 1)
+PROGRAM = zero_flip
+# makefile
+MAKEFLAGS = pqrR
+# environment
+ONEDRIVE = C:\Users\remis\OneDrive
+# makefile
+CURDIR := d:/Documents/Coding/Cpp/ZeroFlip
+# environment
+VSCODE_PIPE_LOGGING = true
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+# automatic
+*D = $(patsubst %/,%,$(patsubst %\,%,$(dir $*)))
+# environment
+PROGRAMFILES = C:\Program Files (x86)
+# environment
+MFLAGS = -pqrR
+# default
+.SHELLFLAGS := -c
+# environment
+COMMONPROGRAMW6432 = C:\Program Files\Common Files
+# automatic
++D = $(patsubst %/,%,$(patsubst %\,%,$(dir $+)))
+# makefile (from 'src/ui.d', line 1)
+MAKEFILE_LIST := Makefile src/main.d src/Math.d src/card.d src/game_board.d src/indicator.d src/shop.d src/ui.d
+# automatic
+@F = $(notdir $@)
+# environment
+VSCODE_VERBOSE_LOGGING = true
+# environment
+VSCODE_PID = 6492
+# automatic
+?D = $(patsubst %/,%,$(patsubst %\,%,$(dir $?)))
+# makefile (from 'Makefile', line 6)
+CPP_FLAGS = -I./Resources/ThirdParty/include -MMD
+# automatic
+*F = $(notdir $*)
+# automatic
+<D = $(patsubst %/,%,$(patsubst %\,%,$(dir $<)))
+# environment
+VSCODE_NLS_CONFIG = {"locale":"en-gb","availableLanguages":{},"_languagePackSupport":true}
+# environment
+JD2_HOME = D:\raccourcis bureau\Pointeurs de souris\supercursors\mouse personalisation\bonus\Locker\Reddit Downloader\JDownloader
+# environment
+AMDRMPATH = C:\Program Files\AMD\RyzenMaster\
+# environment
+ONEDRIVECONSUMER = C:\Users\remis\OneDrive
+# environment
+ANDROID_HOME = C:\Microsoft\AndroidSDK\25
+# default
+MAKE_HOST := Windows32
+# makefile (from 'Makefile', line 2)
+OBJS = src/main.o src/Math.o src/card.o src/game_board.o src/indicator.o src/shop.o src/ui.o
+# environment
+PROGRAMDATA = C:\ProgramData
+# default
+SHELL := C:/Program Files/Git/bin/sh.exe
+# environment
+HOMEPATH = \Users\remis
+# default
+MAKECMDGOALS := all
+# environment
+DRIVERDATA = C:\Windows\System32\Drivers\DriverData
+# environment
+COMSPEC = C:\Windows\system32\cmd.exe
+# environment
+WINDIR = C:\Windows
+# environment
+MAKELEVEL := 0
+# default
+MAKE = $(MAKE_COMMAND)
+# environment
+PATH = C:\Program Files\Oculus\Support\oculus-runtime;C:\ProgramData\chocolatey\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows;C:\Windows\system32;C:\Windows\System32\Wbem;C:\Windows\System32\OpenSSH\;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Users\remis\AppData\Local\Microsoft\WindowsApps;C:\adb;C:\Program Files (x86)\Google\Chrome\Application;C:\Users\remis\AppData\Local\Programs\Python\Python38;C:\Users\remis\AppData\Local\Programs\Python\Python38\Scripts;C:\Program Files\PyCharm Community Edition 2019.3.1\bin;C:\MinGW\bin;C:\Program Files\Java\jdk-14.0.1\bin;C:\Program Files\Java\jdk-13\bin;C:\Program Files\WinRAR;C:\Program Files (x86)\GoPro\Tools;C:\Program Files (x86)\CineForm\Tools;C:\Program Files\dotnet\;C:\Program Files\Git\bin;C:\Program Files\Git\cmd;C:\MinGW\bin;C:\Program Files\Cmake\bin;C:\Program Files\Gradle\bin;C:\Microsoft\AndroidSDK\25\tools;C:\Microsoft\AndroidSDK\25\platform-tools;C:\Microsoft\AndroidNDK64\android-ndk-r16b;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Microsoft VS Code\bin;C:\deps\LLVM\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Users\remis\AppData\Local\Microsoft\WindowsApps;C:\Program Files\PyCharm Community Edition 2019.3.1\bin;C:\Users\remis\AppData\Local\Programs\Python\Python38;C:\Users\remis\AppData\Local\Programs\Python\Python38\Scripts;C:\Users\remis\.dotnet\tools;C:\Users\remis\.dotnet\tools;C:\Users\remis\AppData\Local\GitHubDesktop\bin;C:\Users\remis\AppData\Local\Microsoft\WindowsApps;
+# environment
+COMPUTERNAME = PCREMI
+# default
+MAKEFILES := 
+# automatic
+^F = $(notdir $^)
+# environment
+PROMPT = $P$G
+# environment
+CHOCOLATEYLASTPATHUPDATE = 132770436970784697
+# environment
+OCL_ROOT = C:\Program Files (x86)\OCL_SDK_Light
+# environment
+LOGONSERVER = \\PCREMI
+# environment
+VSCODE_LOG_NATIVE = false
+# environment
+USERNAME = remis
+# environment
+COMMONPROGRAMFILES = C:\Program Files (x86)\Common Files
+# automatic
+?F = $(notdir $?)
+# environment
+PROGRAMW6432 = C:\Program Files
+# environment
+PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+# automatic
++F = $(notdir $+)
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = undefined
+# environment
+USERDOMAIN = PCREMI
+# 'override' directive
+GNUMAKEFLAGS := 
+# environment
+OS = Windows_NT
+# makefile
+.DEFAULT_GOAL := all
+# default
+MAKE_VERSION := 4.3
+# environment
+PROGRAMFILES(X86) = C:\Program Files (x86)
+# environment
+USERDOMAIN_ROAMINGPROFILE = PCREMI
+# environment
+NUMBER_OF_PROCESSORS = 8
+# environment
+PUBLIC = C:\Users\Public
+# makefile (from 'Makefile', line 5)
+CXX_FLAGS = -O0 -g -m32 -std=c++17 -lm -Wall -Wextra -Wno-unused-parameter -Wno-unused-variable
+# environment
+APPDATA = C:\Users\remis\AppData\Roaming
+# environment
+HOMEDRIVE = C:
+# environment
+QML_DISABLE_DISK_CACHE = 1
+# environment
+CHROMEDRIVER = C:\chromedriver\chromedriver.exe
+# environment
+PROCESSOR_ARCHITECTURE = x86
+# makefile (from 'Makefile', line 8)
+LIB_DIRS = -L./Resources/ThirdParty/lib
+# environment
+PYCHARM COMMUNITY EDITION = C:\Program Files\PyCharm Community Edition 2019.3.1\bin;
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/services/extensions/node/extensionHostProcess
+# environment
+COMMONPROGRAMFILES(X86) = C:\Program Files (x86)\Common Files
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# environment
+TEMP = C:\Users\remis\AppData\Local\Temp
+# environment
+VSCODE_IPC_HOOK = \\.\pipe\e2441c8b33ca5c10999cfab078a9fea9-1.63.2-main-sock
+# makefile (from 'Makefile', line 10)
+LNK_FLAGS = $(LIB_DIRS) $(LIBS)
+# default
+.RECIPEPREFIX := 
+# environment
+QT_DISABLE_SHADER_DISK_CACHE = 1
+# automatic
+<F = $(notdir $<)
+# makefile (from 'Makefile', line 12)
+DEPS = $(OBJS:.o=.d)
+# default
+SUFFIXES := 
+# environment
+ALLUSERSPROFILE = C:\ProgramData
+# environment
+SESSIONNAME = Console
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync load
+# environment
+PROCESSOR_REVISION = 0101
+# makefile (from 'Makefile', line 4)
+CXX = g++
+# environment
+WIX = C:\Program Files (x86)\WiX Toolset v3.11\
+# environment
+PROCESSOR_IDENTIFIER = AMD64 Family 23 Model 1 Stepping 1, AuthenticAMD
+# variable set hash-table stats:
+# Load=120/1024=12%, Rehash=0, Collisions=28/174=16%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# src (key d:/Documents/Coding/Cpp/ZeroFlip/src, mtime 1641931611): No files, no impossibilities so far.
+# . (key d:/Docume 
+nts/Coding/Cpp/ZeroFlip, mtime 1641931617): 14 files, no impossibilities.
+
+# 14 files, no impossibilities in 2 directories.
+
+# Implicit Rules
+
+%.o: %.cpp
+#  recipe to execute (from 'Makefile', line 21):
+	$(CXX) -c $< -o $@ $(CXX_FLAGS) $(CPP_FLAGS)
+
+# 1 implicit rules, 0 (0.0%) terminal.
+# Files
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Audio/SoundSource.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Window/Touch.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Window/Keyboard.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Graphics/ConvexShape.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Graphics/Transformable.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Graphics/Rect.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/System/Vector2.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Window/Cursor.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-10-15 21:31:28
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Graphics.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/System/Clock.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Graphics/Font.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/Math.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-01-11 20:31:54
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Graphics/Color.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/System/Vector3.inl:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Graphics/Sprite.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/System/ThreadLocal.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Window/GlResource.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Window.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Graphics/View.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/indicator.d:
+#  Implicit rule search has been done.
+#  Last modified 2022-01-11 21:06:49
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Graphics/Export.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Graphics/Vertex.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Window/Joystick.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+src/ui.o: src/ui.cpp src/ui.cpp Resources/ThirdParty/include/SFML/System.hpp Resources/ThirdParty/include/SFML/Config.hpp Resources/ThirdParty/include/SFML/System/Clock.hpp Resources/ThirdParty/include/SFML/System/Export.hpp Resources/ThirdParty/include/SFML/System/Time.hpp Resources/ThirdParty/include/SFML/System/Err.hpp Resources/ThirdParty/include/SFML/System/FileInputStream.hpp Resources/ThirdParty/include/SFML/System/InputStream.hpp Resources/ThirdParty/include/SFML/System/NonCopyable.hpp Resources/ThirdParty/include/SFML/System/Lock.hpp Resources/ThirdParty/include/SFML/System/MemoryInputStream.hpp Resources/ThirdParty/include/SFML/System/Mutex.hpp Resources/ThirdParty/include/SFML/System/Sleep.hpp Resources/ThirdParty/include/SFML/System/String.hpp Resources/ThirdParty/include/SFML/System/Utf.hpp Resources/ThirdParty/include/SFML/System/Utf.inl Resources/ThirdParty/include/SFML/System/String.inl Resources/ThirdParty/include/SFML/System/Thread.hpp Resources/ThirdParty/include/SFML/System/Thread.inl Resources/ThirdParty/include/SFML/System/ThreadLocal.hpp Resources/ThirdParty/include/SFML/System/ThreadLocalPtr.hpp Resources/ThirdParty/include/SFML/System/ThreadLocalPtr.inl Resources/ThirdParty/include/SFML/System/Vector2.hpp Resources/ThirdParty/include/SFML/System/Vector2.inl Resources/ThirdParty/include/SFML/System/Vector3.hpp Resources/ThirdParty/include/SFML/System/Vector3.inl Resources/ThirdParty/include/SFML/Window.hpp Resources/ThirdParty/include/SFML/Window/Clipboard.hpp Resources/ThirdParty/include/SFML/Window/Export.hpp Resources/ThirdParty/include/SFML/Window/Context.hpp Resources/ThirdParty/include/SFML/Window/GlResource.hpp Resources/ThirdParty/include/SFML/Window/ContextSettings.hpp Resources/ThirdParty/include/SFML/Window/Cursor.hpp Resources/ThirdParty/include/SFML/Window/Event.hpp Resources/ThirdParty/include/SFML/Window/Joystick.hpp Resources/ThirdParty/include/SFML/Window/Keyboard.hpp Resources/ThirdParty/include/SFML/Window/Mouse.hpp Resources/ThirdParty/include/SFML/Window/Sensor.hpp Resources/ThirdParty/include/SFML/Window/Touch.hpp Resources/ThirdParty/include/SFML/Window/VideoMode.hpp Resources/ThirdParty/include/SFML/Window/Window.hpp Resources/ThirdParty/include/SFML/Window/WindowHandle.hpp Resources/ThirdParty/include/SFML/Window/WindowStyle.hpp Resources/ThirdParty/include/SFML/Graphics.hpp Resources/ThirdParty/include/SFML/Graphics/BlendMode.hpp Resources/ThirdParty/include/SFML/Graphics/Export.hpp Resources/ThirdParty/include/SFML/Graphics/CircleShape.hpp Resources/ThirdParty/include/SFML/Graphics/Shape.hpp Resources/ThirdParty/include/SFML/Graphics/Drawable.hpp Resources/ThirdParty/include/SFML/Graphics/RenderStates.hpp Resources/ThirdParty/include/SFML/Graphics/Transform.hpp Resources/ThirdParty/include/SFML/Graphics/Rect.hpp Resources/ThirdParty/include/SFML/Graphics/Rect.inl Resources/ThirdParty/include/SFML/Graphics/Transformable.hpp Resources/ThirdParty/include/SFML/Graphics/VertexArray.hpp Resources/ThirdParty/include/SFML/Graphics/Vertex.hpp Resources/ThirdParty/include/SFML/Graphics/Color.hpp Resources/ThirdParty/include/SFML/Graphics/PrimitiveType.hpp Resources/ThirdParty/include/SFML/Graphics/ConvexShape.hpp Resources/ThirdParty/include/SFML/Graphics/Font.hpp Resources/ThirdParty/include/SFML/Graphics/Glyph.hpp Resources/ThirdParty/include/SFML/Graphics/Texture.hpp Resources/ThirdParty/include/SFML/Graphics/Image.hpp Resources/ThirdParty/include/SFML/Graphics/RectangleShape.hpp Resources/ThirdParty/include/SFML/Graphics/RenderTarget.hpp Resources/ThirdParty/include/SFML/Graphics/View.hpp Resources/ThirdParty/include/SFML/Graphics/RenderTexture.hpp Resources/ThirdParty/include/SFML/Graphics/RenderWindow.hpp Resources/ThirdParty/include/SFML/Graphics/Shader.hpp Resources/ThirdParty/include/SFML/Graphics/Glsl.hpp Resources/ThirdParty/include/SFML/Graphics/Glsl.inl Resources/ThirdParty/include/SFML/Graphics/Sprite.hpp Resources/ThirdParty/include/SFML/Graphics/Text.hpp Resources/ThirdParty/include/SFML/Graphics/VertexBuffer.hpp Resources/ThirdParty/include/SFML/Audio.hpp Resources/ThirdParty/include/SFML/Audio/InputSoundFile.hpp Resources/ThirdParty/include/SFML/Audio/Export.hpp Resources/ThirdParty/include/SFML/Audio/Listener.hpp Resources/ThirdParty/include/SFML/Audio/Music.hpp Resources/ThirdParty/include/SFML/Audio/SoundStream.hpp Resources/ThirdParty/include/SFML/Audio/SoundSource.hpp Resources/ThirdParty/ 
+include/SFML/Audio/AlResource.hpp Resources/ThirdParty/include/SFML/Audio/OutputSoundFile.hpp Resources/ThirdParty/include/SFML/Audio/Sound.hpp Resources/ThirdParty/include/SFML/Audio/SoundBuffer.hpp Resources/ThirdParty/include/SFML/Audio/SoundBufferRecorder.hpp Resources/ThirdParty/include/SFML/Audio/SoundRecorder.hpp Resources/ThirdParty/include/SFML/Audio/SoundFileFactory.hpp Resources/ThirdParty/include/SFML/Audio/SoundFileFactory.inl Resources/ThirdParty/include/SFML/Audio/SoundFileReader.hpp Resources/ThirdParty/include/SFML/Audio/SoundFileWriter.hpp src/classes.hpp src/Math.hpp
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'src/ui'
+#  Last modified 2022-01-11 21:06:51
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 21):
+	$(CXX) -c $< -o $@ $(CXX_FLAGS) $(CPP_FLAGS)
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2022-01-11 21:06:39
+#  File has been updated.
+#  Successfully updated.
+
+src/card.o: src/card.cpp src/card.cpp src/classes.hpp Resources/ThirdParty/include/SFML/System.hpp Resources/ThirdParty/include/SFML/Config.hpp Resources/ThirdParty/include/SFML/System/Clock.hpp Resources/ThirdParty/include/SFML/System/Export.hpp Resources/ThirdParty/include/SFML/System/Time.hpp Resources/ThirdParty/include/SFML/System/Err.hpp Resources/ThirdParty/include/SFML/System/FileInputStream.hpp Resources/ThirdParty/include/SFML/System/InputStream.hpp Resources/ThirdParty/include/SFML/System/NonCopyable.hpp Resources/ThirdParty/include/SFML/System/Lock.hpp Resources/ThirdParty/include/SFML/System/MemoryInputStream.hpp Resources/ThirdParty/include/SFML/System/Mutex.hpp Resources/ThirdParty/include/SFML/System/Sleep.hpp Resources/ThirdParty/include/SFML/System/String.hpp Resources/ThirdParty/include/SFML/System/Utf.hpp Resources/ThirdParty/include/SFML/System/Utf.inl Resources/ThirdParty/include/SFML/System/String.inl Resources/ThirdParty/include/SFML/System/Thread.hpp Resources/ThirdParty/include/SFML/System/Thread.inl Resources/ThirdParty/include/SFML/System/ThreadLocal.hpp Resources/ThirdParty/include/SFML/System/ThreadLocalPtr.hpp Resources/ThirdParty/include/SFML/System/ThreadLocalPtr.inl Resources/ThirdParty/include/SFML/System/Vector2.hpp Resources/ThirdParty/include/SFML/System/Vector2.inl Resources/ThirdParty/include/SFML/System/Vector3.hpp Resources/ThirdParty/include/SFML/System/Vector3.inl Resources/ThirdParty/include/SFML/Window.hpp Resources/ThirdParty/include/SFML/Window/Clipboard.hpp Resources/ThirdParty/include/SFML/Window/Export.hpp Resources/ThirdParty/include/SFML/Window/Context.hpp Resources/ThirdParty/include/SFML/Window/GlResource.hpp Resources/ThirdParty/include/SFML/Window/ContextSettings.hpp Resources/ThirdParty/include/SFML/Window/Cursor.hpp Resources/ThirdParty/include/SFML/Window/Event.hpp Resources/ThirdParty/include/SFML/Window/Joystick.hpp Resources/ThirdParty/include/SFML/Window/Keyboard.hpp Resources/ThirdParty/include/SFML/Window/Mouse.hpp Resources/ThirdParty/include/SFML/Window/Sensor.hpp Resources/ThirdParty/include/SFML/Window/Touch.hpp Resources/ThirdParty/include/SFML/Window/VideoMode.hpp Resources/ThirdParty/include/SFML/Window/Window.hpp Resources/ThirdParty/include/SFML/Window/WindowHandle.hpp Resources/ThirdParty/include/SFML/Window/WindowStyle.hpp Resources/ThirdParty/include/SFML/Graphics.hpp Resources/ThirdParty/include/SFML/Graphics/BlendMode.hpp Resources/ThirdParty/include/SFML/Graphics/Export.hpp Resources/ThirdParty/include/SFML/Graphics/CircleShape.hpp Resources/ThirdParty/include/SFML/Graphics/Shape.hpp Resources/ThirdParty/include/SFML/Graphics/Drawable.hpp Resources/ThirdParty/include/SFML/Graphics/RenderStates.hpp Resources/ThirdParty/include/SFML/Graphics/Transform.hpp Resources/ThirdParty/include/SFML/Graphics/Rect.hpp Resources/ThirdParty/include/SFML/Graphics/Rect.inl Resources/ThirdParty/include/SFML/Graphics/Transformable.hpp Resources/ThirdParty/include/SFML/Graphics/VertexArray.hpp Resources/ThirdParty/include/SFML/Graphics/Vertex.hpp Resources/ThirdParty/include/SFML/Graphics/Color.hpp Resources/ThirdParty/include/SFML/Graphics/PrimitiveType.hpp Resources/ThirdParty/include/SFML/Graphics/ConvexShape.hpp Resources/ThirdParty/include/SFML/Graphics/Font.hpp Resources/ThirdParty/include/SFML/Graphics/Glyph.hpp Resources/ThirdParty/include/SFML/Graphics/Texture.hpp Resources/ThirdParty/include/SFML/Graphics/Image.hpp Resources/ThirdParty/include/SFML/Graphics/RectangleShape.hpp Resources/ThirdParty/include/SFML/Graphics/RenderTarget.hpp Resources/ThirdParty/include/SFML/Graphics/View.hpp Resources/ThirdParty/include/SFML/Graphics/RenderTexture.hpp Resources/ThirdParty/include/SFML/Graphics/RenderWindow.hpp Resources/ThirdParty/include/SFML/Graphics/Shader.hpp Resources/ThirdParty/include/SFML/Graphics/Glsl.hpp Resources/ThirdParty/include/SFML/Graphics/Glsl.inl Resources/ThirdParty/include/SFML/Graphics/Sprite.hpp Resources/ThirdParty/include/SFML/Graphics/Text.hpp Resources/ThirdParty/include/SFML/Graphics/VertexBuffer.hpp Resources/ThirdParty/include/SFML/Audio.hpp Resources/ThirdParty/include/SFML/Audio/InputSoundFile.hpp Resources/ThirdParty/include/SFML/Audio/Export.hpp Resources/ThirdParty/include/SFML/Audio/Listener.hpp Resources/ThirdParty/include/SFML/Audio/Music.hpp Resources/ThirdParty/include/SFML/Audio/SoundStream.hpp Resources/ThirdParty/include/SFML/Audio/SoundSource.hpp Resources/ThirdParty/include/SFML/Audio/AlResource.hpp Resources/ThirdParty/include/SFML/Audio/OutputSoundFile.hpp Resources/ThirdParty/include/SFML/Audio/Sound.hpp Resources/ThirdParty/include/SFML/Audio/SoundBuffer.hpp Resources/ThirdParty/include/SFML/Audio/SoundBufferRecorder.hpp Resources/ThirdParty/include/SFML/Audio/SoundRecorder.hpp Resources/ThirdParty/include/SFML/Audio/SoundFileFactory.hpp Resources/ThirdParty/include/SFML/Audio/SoundFileFactory.inl Resources/ThirdParty/include/SFML/Audio/SoundFileReader.hpp Resources/ThirdParty/include/SFML/Audio/SoundFileWriter.hpp
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'src/card'
+#  Last modified 2022-01-11 21:06:47
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 21):
+	$(CXX) -c $< -o $@ $(CXX_FLAGS) $(CPP_FLAGS)
+
+# Not a target:
+Resources/ThirdParty/include/SFML/System/Utf.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/card.d:
+#  Implicit rule search has been done.
+#  Last modified 2022-01-11 21:06:47
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Graphics/Transform.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Audio/SoundFileFactory.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Graphics/CircleShape.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Window/Sensor.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Audio/SoundBuffer.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/c 
+ard.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-01-11 21:05:11
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/System/Lock.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+zero_flip: src/main.o src/Math.o src/card.o src/game_board.o src/indicator.o src/shop.o src/ui.o
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: ''
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := zero_flip
+# automatic
+# * := 
+# automatic
+# < := src/main.o
+# automatic
+# + := src/main.o src/Math.o src/card.o src/game_board.o src/indicator.o src/shop.o src/ui.o
+# automatic
+# % := 
+# automatic
+# ^ := src/main.o src/Math.o src/card.o src/game_board.o src/indicator.o src/shop.o src/ui.o
+# automatic
+# ? := src/main.o src/Math.o src/card.o src/game_board.o src/indicator.o src/shop.o src/ui.o
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=5/19=26%
+#  recipe to execute (from 'Makefile', line 24):
+	$(CXX) $^ -o $@ $(CXX_FLAGS) $(CPP_FLAGS) $(LNK_FLAGS)
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Graphics/Shape.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Audio/SoundBufferRecorder.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/main.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-01-11 21:05:11
+#  File has been updated.
+#  Successfully updated.
+
+clean:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 27):
+	rm -f $(OBJS) $(DEPS) $(PROGRAM) && clear
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Window/Clipboard.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-10-15 21:31:28
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/System/ThreadLocalPtr.inl:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/game_board.d:
+#  Implicit rule search has been done.
+#  Last modified 2022-01-11 21:06:48
+#  File has been updated.
+# 
+  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Config.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-10-15 21:31:28
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/indicator.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-01-11 21:02:40
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/shop.d:
+#  Implicit rule search has been done.
+#  Last modified 2022-01-11 21:06:50
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Window/VideoMode.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Audio/SoundFileFactory.inl:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Graphics/Rect.inl:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/System.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Audio/OutputSoundFile.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/System/Time.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/System/MemoryInputStream.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/System/Thread.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/System/Vector3.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/System/Vector2.inl:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/System/InputStream.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Audio/Export.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Audio/SoundFileReader.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21 
+:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Graphics/VertexBuffer.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Audio/SoundStream.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Graphics/RenderTexture.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+src/main.o: src/main.cpp src/main.cpp Resources/ThirdParty/include/SFML/System.hpp Resources/ThirdParty/include/SFML/Config.hpp Resources/ThirdParty/include/SFML/System/Clock.hpp Resources/ThirdParty/include/SFML/System/Export.hpp Resources/ThirdParty/include/SFML/System/Time.hpp Resources/ThirdParty/include/SFML/System/Err.hpp Resources/ThirdParty/include/SFML/System/FileInputStream.hpp Resources/ThirdParty/include/SFML/System/InputStream.hpp Resources/ThirdParty/include/SFML/System/NonCopyable.hpp Resources/ThirdParty/include/SFML/System/Lock.hpp Resources/ThirdParty/include/SFML/System/MemoryInputStream.hpp Resources/ThirdParty/include/SFML/System/Mutex.hpp Resources/ThirdParty/include/SFML/System/Sleep.hpp Resources/ThirdParty/include/SFML/System/String.hpp Resources/ThirdParty/include/SFML/System/Utf.hpp Resources/ThirdParty/include/SFML/System/Utf.inl Resources/ThirdParty/include/SFML/System/String.inl Resources/ThirdParty/include/SFML/System/Thread.hpp Resources/ThirdParty/include/SFML/System/Thread.inl Resources/ThirdParty/include/SFML/System/ThreadLocal.hpp Resources/ThirdParty/include/SFML/System/ThreadLocalPtr.hpp Resources/ThirdParty/include/SFML/System/ThreadLocalPtr.inl Resources/ThirdParty/include/SFML/System/Vector2.hpp Resources/ThirdParty/include/SFML/System/Vector2.inl Resources/ThirdParty/include/SFML/System/Vector3.hpp Resources/ThirdParty/include/SFML/System/Vector3.inl Resources/ThirdParty/include/SFML/Window.hpp Resources/ThirdParty/include/SFML/Window/Clipboard.hpp Resources/ThirdParty/include/SFML/Window/Export.hpp Resources/ThirdParty/include/SFML/Window/Context.hpp Resources/ThirdParty/include/SFML/Window/GlResource.hpp Resources/ThirdParty/include/SFML/Window/ContextSettings.hpp Resources/ThirdParty/include/SFML/Window/Cursor.hpp Resources/ThirdParty/include/SFML/Window/Event.hpp Resources/ThirdParty/include/SFML/Window/Joystick 
+.hpp Resources/ThirdParty/include/SFML/Window/Keyboard.hpp Resources/ThirdParty/include/SFML/Window/Mouse.hpp Resources/ThirdParty/include/SFML/Window/Sensor.hpp Resources/ThirdParty/include/SFML/Window/Touch.hpp Resources/ThirdParty/include/SFML/Window/VideoMode.hpp Resources/ThirdParty/include/SFML/Window/Window.hpp Resources/ThirdParty/include/SFML/Window/WindowHandle.hpp Resources/ThirdParty/include/SFML/Window/WindowStyle.hpp Resources/ThirdParty/include/SFML/Graphics.hpp Resources/ThirdParty/include/SFML/Graphics/BlendMode.hpp Resources/ThirdParty/include/SFML/Graphics/Export.hpp Resources/ThirdParty/include/SFML/Graphics/CircleShape.hpp Resources/ThirdParty/include/SFML/Graphics/Shape.hpp Resources/ThirdParty/include/SFML/Graphics/Drawable.hpp Resources/ThirdParty/include/SFML/Graphics/RenderStates.hpp Resources/ThirdParty/include/SFML/Graphics/Transform.hpp Resources/ThirdParty/include/SFML/Graphics/Rect.hpp Resources/ThirdParty/include/SFML/Graphics/Rect.inl Resources/ThirdParty/include/SFML/Graphics/Transformable.hpp Resources/ThirdParty/include/SFML/Graphics/VertexArray.hpp Resources/ThirdParty/include/SFML/Graphics/Vertex.hpp Resources/ThirdParty/include/SFML/Graphics/Color.hpp Resources/ThirdParty/include/SFML/Graphics/PrimitiveType.hpp Resources/ThirdParty/include/SFML/Graphics/ConvexShape.hpp Resources/ThirdParty/include/SFML/Graphics/Font.hpp Resources/ThirdParty/include/SFML/Graphics/Glyph.hpp Resources/ThirdParty/include/SFML/Graphics/Texture.hpp Resources/ThirdParty/include/SFML/Graphics/Image.hpp Resources/ThirdParty/include/SFML/Graphics/RectangleShape.hpp Resources/ThirdParty/include/SFML/Graphics/RenderTarget.hpp Resources/ThirdParty/include/SFML/Graphics/View.hpp Resources/ThirdParty/include/SFML/Graphics/RenderTexture.hpp Resources/ThirdParty/include/SFML/Graphics/RenderWindow.hpp Resources/ThirdParty/include/SFML/Graphics/Shader.hpp Resources/ThirdParty/include/SFML/Graphics/Glsl.hpp Resources/ThirdParty/include/SFML/Graphics/Glsl.inl Resources/ThirdParty/include/SFML/Graphics/Sprite.hpp 
+ Resources/ThirdParty/include/SFML/Graphics/Text.hpp Resources/ThirdParty/include/SFML/Graphics/VertexBuffer.hpp Resources/ThirdParty/include/SFML/Audio.hpp Resources/ThirdParty/include/SFML/Audio/InputSoundFile.hpp Resources/ThirdParty/include/SFML/Audio/Export.hpp Resources/ThirdParty/include/SFML/Audio/Listener.hpp Resources/ThirdParty/include/SFML/Audio/Music.hpp Resources/ThirdParty/include/SFML/Audio/SoundStream.hpp Resources/ThirdParty/include/SFML/Audio/SoundSource.hpp Resources/ThirdParty/include/SFML/Audio/AlResource.hpp Resources/ThirdParty/include/SFML/Audio/OutputSoundFile.hpp Resources/ThirdParty/include/SFML/Audio/Sound.hpp Resources/ThirdParty/include/SFML/Audio/SoundBuffer.hpp Resources/ThirdParty/include/SFML/Audio/SoundBufferRecorder.hpp Resources/ThirdParty/include/SFML/Audio/SoundRecorder.hpp Resources/ThirdParty/include/SFML/Audio/SoundFileFactory.hpp Resources/ThirdParty/include/SFML/Audio/SoundFileFactory.inl Resources/ThirdParty/include/SFML/Audio/SoundFileReader.hpp Resources/ThirdParty/include/SFML/Audio/SoundFileWriter.hpp src/classes.hpp
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'src/main'
+#  Last modified 2022-01-11 21:06:46
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 21):
+	$(CXX) -c $< -o $@ $(CXX_FLAGS) $(CPP_FLAGS)
+
+# Not a target:
+Resources/ThirdParty/include/SFML/System/Mutex.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Graphics/Glsl.inl:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Audio/SoundRecorder.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+src/indicator.o: src/indicator.cpp src/indicator.cpp Resources/ThirdParty/include/SFML/System.hpp Resources/ThirdParty/include/SFML/Config.hpp Resources/ThirdParty/include/SFML/System/Clock.hpp Resources/ThirdParty/include/SFML/System/Export.hpp Resources/ThirdParty/include/SFML/System/Time.hpp Resources/ThirdParty/include/SFML/System/Err.hpp Resources/ThirdParty/include/SFML/System/FileInputStream.hpp Resources/ThirdParty/include/SFML/System/InputStream.hpp Resources/ThirdParty/include/SFML/System/NonCopyable.hpp Resources/ThirdParty/include/SFML/System/Lock.hpp Resources/ThirdParty/include/SFML/System/MemoryInputStream.hpp Resources/ThirdParty/include/SFML/System/Mutex.hpp Resources/ThirdParty/include/SFML/System/Sleep.hpp Resources/ThirdParty/include/SFML/System/String.hpp Resources/ThirdParty/include/SFML/System/Utf.hpp Resources/ThirdParty/include/SFML/System/Utf.inl Resources/ThirdParty/include/SFML/System/String.inl Resources/ThirdParty/include/SFML/System/Thread.hpp Resources/ThirdParty/include/SFML/System/Thread.inl Resources/ThirdParty/include/SFML/System/ThreadLocal.hpp Resources/ThirdParty/include 
+/SFML/System/ThreadLocalPtr.hpp Resources/ThirdParty/include/SFML/System/ThreadLocalPtr.inl Resources/ThirdParty/include/SFML/System/Vector2.hpp Resources/ThirdParty/include/SFML/System/Vector2.inl Resources/ThirdParty/include/SFML/System/Vector3.hpp Resources/ThirdParty/include/SFML/System/Vector3.inl Resources/ThirdParty/include/SFML/Window.hpp Resources/ThirdParty/include/SFML/Window/Clipboard.hpp Resources/ThirdParty/include/SFML/Window/Export.hpp Resources/ThirdParty/include/SFML/Window/Context.hpp Resources/ThirdParty/include/SFML/Window/GlResource.hpp Resources/ThirdParty/include/SFML/Window/ContextSettings.hpp Resources/ThirdParty/include/SFML/Window/Cursor.hpp Resources/ThirdParty/include/SFML/Window/Event.hpp Resources/ThirdParty/include/SFML/Window/Joystick.hpp Resources/ThirdParty/include/SFML/Window/Keyboard.hpp Resources/ThirdParty/include/SFML/Window/Mouse.hpp Resources/ThirdParty/include/SFML/Window/Sensor.hpp Resources/ThirdParty/include/SFML/Window/Touch.hpp Resources/ThirdParty/include/SFML/Window/VideoMode.hpp Resources/ThirdParty/include/SFML/Window/Window.hpp Resources/ThirdParty/include/SFML/Window/WindowHandle.hpp Resources/ThirdParty/include/SFML/Window/WindowStyle.hpp Resources/ThirdParty/include/SFML/Graphics.hpp Resources/ThirdParty/include/SFML/Graphics/BlendMode.hpp Resources/ThirdParty/include/SFML/Graphics/Export.hpp Resources/ThirdParty/include/SFML/Graphics/CircleShape.hpp Resources/ThirdParty/include/SFML/Graphics/Shape.hpp Resources/ThirdParty/include/SFML/Graphics/Drawable.hpp Resources/ThirdParty/include/SFML/Graphics/RenderStates.hpp Resources/ThirdParty/include/SFML/Graphics/Transform.hpp Resources/ThirdParty/include/SFML/Graphics/Rect.hpp Resources/ThirdParty/include/SFML/Graphics/Rect.inl Resources/ThirdParty/include/SFML/Graphics/Transformable.hpp Resources/ThirdParty/include/SFML/Graphics/VertexArray.hpp Resources/ThirdParty/include/SFML/Graphics/Vertex.hpp Resources/ThirdParty/include/SFML/Graphics/Color.hpp Resources/ThirdParty/include/SFML/Graphics/PrimitiveType.hpp  
+Resources/ThirdParty/include/SFML/Graphics/ConvexShape.hpp Resources/ThirdParty/include/SFML/Graphics/Font.hpp Resources/ThirdParty/include/SFML/Graphics/Glyph.hpp Resources/ThirdParty/include/SFML/Graphics/Texture.hpp Resources/ThirdParty/include/SFML/Graphics/Image.hpp Resources/ThirdParty/include/SFML/Graphics/RectangleShape.hpp Resources/ThirdParty/include/SFML/Graphics/RenderTarget.hpp Resources/ThirdParty/include/SFML/Graphics/View.hpp Resources/ThirdParty/include/SFML/Graphics/RenderTexture.hpp Resources/ThirdParty/include/SFML/Graphics/RenderWindow.hpp Resources/ThirdParty/include/SFML/Graphics/Shader.hpp Resources/ThirdParty/include/SFML/Graphics/Glsl.hpp Resources/ThirdParty/include/SFML/Graphics/Glsl.inl Resources/ThirdParty/include/SFML/Graphics/Sprite.hpp Resources/ThirdParty/include/SFML/Graphics/Text.hpp Resources/ThirdParty/include/SFML/Graphics/VertexBuffer.hpp Resources/ThirdParty/include/SFML/Audio.hpp Resources/ThirdParty/include/SFML/Audio/InputSoundFile.hpp Resources/ThirdParty/include/SFML/Audio/Export.hpp Resources/ThirdParty/include/SFML/Audio/Listener.hpp Resources/ThirdParty/include/SFML/Audio/Music.hpp Resources/ThirdParty/include/SFML/Audio/SoundStream.hpp Resources/ThirdParty/include/SFML/Audio/SoundSource.hpp Resources/ThirdParty/include/SFML/Audio/AlResource.hpp Resources/ThirdParty/include/SFML/Audio/OutputSoundFile.hpp Resources/ThirdParty/include/SFML/Audio/Sound.hpp Resources/ThirdParty/include/SFML/Audio/SoundBuffer.hpp Resources/ThirdParty/include/SFML/Audio/SoundBufferRecorder.hpp Resources/ThirdParty/include/SFML/Audio/SoundRecorder.hpp Resources/ThirdParty/include/SFML/Audio/SoundFileFactory.hpp Resources/ThirdParty/include/SFML/Audio/SoundFileFactory.inl Resources/ThirdParty/include/SFML/Audio/SoundFileReader.hpp Resources/ThirdParty/include/SFML/Audio/SoundFileWriter.hpp src/classes.hpp
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'src/indicator'
+#  Last modified 2022-01-11 21:06:49
+#  File has been updated.
+#  Successfully updated.
+#  recipe t 
+o execute (from 'Makefile', line 21):
+	$(CXX) -c $< -o $@ $(CXX_FLAGS) $(CPP_FLAGS)
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Window/Context.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Graphics/RenderStates.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+all: zero_flip
+#  Phony target (prerequisite of .PHONY).
+#  Command line target.
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/9=0%
+
+# Not a target:
+Resources/ThirdParty/include/SFML/System/String.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Graphics/RectangleShape.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Audio/InputSoundFile.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Graphics/Shader.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/System/Thread.inl:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Graphics/Image.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Graphics/RenderTarget.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+src/shop.o: src/shop.cpp src/shop.cpp src/classes.hpp Resources/ThirdParty/include/SFML/System.hpp Resources/ThirdParty/include/SFML/Config.hpp Resources/ThirdParty/include/SFML/System/Clock.hpp Resources/ThirdParty/include/SFML/System/Expor 
+t.hpp Resources/ThirdParty/include/SFML/System/Time.hpp Resources/ThirdParty/include/SFML/System/Err.hpp Resources/ThirdParty/include/SFML/System/FileInputStream.hpp Resources/ThirdParty/include/SFML/System/InputStream.hpp Resources/ThirdParty/include/SFML/System/NonCopyable.hpp Resources/ThirdParty/include/SFML/System/Lock.hpp Resources/ThirdParty/include/SFML/System/MemoryInputStream.hpp Resources/ThirdParty/include/SFML/System/Mutex.hpp Resources/ThirdParty/include/SFML/System/Sleep.hpp Resources/ThirdParty/include/SFML/System/String.hpp Resources/ThirdParty/include/SFML/System/Utf.hpp Resources/ThirdParty/include/SFML/System/Utf.inl Resources/ThirdParty/include/SFML/System/String.inl Resources/ThirdParty/include/SFML/System/Thread.hpp Resources/ThirdParty/include/SFML/System/Thread.inl Resources/ThirdParty/include/SFML/System/ThreadLocal.hpp Resources/ThirdParty/include/SFML/System/ThreadLocalPtr.hpp Resources/ThirdParty/include/SFML/System/ThreadLocalPtr.inl Resources/ThirdParty/include/SFML/System/Vector2.hpp Resources/ThirdParty/include/SFML/System/Vector2.inl Resources/ThirdParty/include/SFML/System/Vector3.hpp Resources/ThirdParty/include/SFML/System/Vector3.inl Resources/ThirdParty/include/SFML/Window.hpp Resources/ThirdParty/include/SFML/Window/Clipboard.hpp Resources/ThirdParty/include/SFML/Window/Export.hpp Resources/ThirdParty/include/SFML/Window/Context.hpp Resources/ThirdParty/include/SFML/Window/GlResource.hpp Resources/ThirdParty/include/SFML/Window/ContextSettings.hpp Resources/ThirdParty/include/SFML/Window/Cursor.hpp Resources/ThirdParty/include/SFML/Window/Event.hpp Resources/ThirdParty/include/SFML/Window/Joystick.hpp Resources/ThirdParty/include/SFML/Window/Keyboard.hpp Resources/ThirdParty/include/SFML/Window/Mouse.hpp Resources/ThirdParty/include/SFML/Window/Sensor.hpp Resources/ThirdParty/include/SFML/Window/Touch.hpp Resources/ThirdParty/include/SFML/Window/VideoMode.hpp Resources/ThirdParty/include/SFML/Window/Window.hpp Resources/ThirdParty/include/SFML/Window/WindowHandle.hpp Resources/ThirdParty/include/SFML/Window/WindowStyle.hpp Resources/ThirdParty/include/SFML/Graphics.hpp Resources/ThirdParty/include/SFML/Graphics/BlendMode.hpp Resources/ThirdParty/include/SFML/Graphics/Export.hpp Resources/ThirdParty/include/SFML/Graphics/CircleShape.hpp Resources/ThirdParty/include/SFML/Graphics/Shape.hpp Resources/ThirdParty/include/SFML/Graphics/Drawable.hpp Resources/ThirdParty/include/SFML/Graphics/RenderStates.hpp Resources/ThirdParty/include/SFML/Graphics/Transform.hpp Resources/ThirdPar 
+ty/include/SFML/Graphics/Rect.hpp Resources/ThirdParty/include/SFML/Graphics/Rect.inl Resources/ThirdParty/include/SFML/Graphics/Transformable.hpp Resources/ThirdParty/include/SFML/Graphics/VertexArray.hpp Resources/ThirdParty/include/SFML/Graphics/Vertex.hpp Resources/ThirdParty/include/SFML/Graphics/Color.hpp Resources/ThirdParty/include/SFML/Graphics/PrimitiveType.hpp Resources/ThirdParty/include/SFML/Graphics/ConvexShape.hpp Resources/ThirdParty/include/SFML/Graphics/Font.hpp Resources/ThirdParty/include/SFML/Graphics/Glyph.hpp Resources/ThirdParty/include/SFML/Graphics/Texture.hpp Resources/ThirdParty/include/SFML/Graphics/Image.hpp Resources/ThirdParty/include/SFML/Graphics/RectangleShape.hpp Resources/ThirdParty/include/SFML/Graphics/RenderTarget.hpp Resources/ThirdParty/include/SFML/Graphics/View.hpp Resources/ThirdParty/include/SFML/Graphics/RenderTexture.hpp Resources/ThirdParty/include/SFML/Graphics/RenderWindow.hpp Resources/ThirdParty/include/SFML/Graphics/Shader.hpp Resources/ThirdParty/include/SFML/Graphics/Glsl.hpp Resources/ThirdParty/include/SFML/Graphics/Glsl.inl Resources/ThirdParty/include/SFML/Graphics/Sprite.hpp Resources/ThirdParty/include/SFML/Graphics/Text.hpp Resources/ThirdParty/include/SFML/Graphics/VertexBuffer.hpp Resources/ThirdParty/include/SFML/Audio.hpp Resources/ThirdParty/include/SFML/Audio/InputSoundFile.hpp Resources/ThirdParty/include/SFML/Audio/Export.hpp Resources/ThirdParty/include/SFML/Audio/Listener.hpp Resources/ThirdParty/include/SFML/Audio/Music.hpp Resources/ThirdParty/include/SFML/Audio/SoundStream.hpp Resources/ThirdParty/include/SFML/Audio/SoundSource.hpp Resources/ThirdParty/include/SFML/Audio/AlResource.hpp Resources/ThirdParty/include/SFML/Audio/OutputSoundFile.hpp Resources/ThirdParty/include/SFML/Audio/Sound.hpp Resources/ThirdParty/include/SFML/Audio/SoundBuffer.hpp Resources/ThirdParty/include/SFML/Audio/SoundBufferRecorder.hpp Resources/ThirdParty/include/SFML/Audio/SoundRecorder.hpp Resources/ThirdParty/include/SFML/Audio/SoundFileFactory.hpp Resources/ThirdParty/include/SFML/Audio/SoundFileFactory.inl Resources/ThirdParty/include/SFML/Audio/SoundFileReader.hpp Resources/ThirdParty/include/SFML/Audio/SoundFileWriter.hpp
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'src/shop'
+#  Last modified 2022-01-11 21:06:50
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 21):
+	$(CXX) -c $< -o $@ $(CXX_FLAGS) $(CPP_FLAGS)
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Graphics/PrimitiveType.h 
+pp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/System/FileInputStream.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-10-15 21:31:28
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/Math.d:
+#  Implicit rule search has been done.
+#  Last modified 2022-01-11 21:06:46
+#  File has been updated.
+#  Successfully updated.
+
+src/Math.o: src/Math.cpp src/Math.cpp src/Math.hpp
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'src/Math'
+#  Last modified 2022-01-11 21:06:46
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 21):
+	$(CXX) -c $< -o $@ $(CXX_FLAGS) $(CPP_FLAGS)
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Graphics/Texture.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/System/Utf.inl:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Audio.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Graphics/Text.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40 
+:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/System/Err.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Graphics/VertexArray.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Window/ContextSettings.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Graphics/Drawable.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Graphics/RenderWindow.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/System/NonCopyable.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Audio/SoundFileWriter.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Window/WindowHandle.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/ui.d:
+#  Implicit rule search has been done.
+#  Last modified 2022-01-11 21:06:50
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Window/Mouse.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resour 
+ces/ThirdParty/include/SFML/Window/Event.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/Math.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-01-11 21:02:40
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Audio/Listener.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/ui.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-01-11 21:05:11
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/System/Sleep.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Graphics/Glsl.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Audio/AlResource.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/System/String.inl:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Window/WindowStyle.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Audio/Music.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/shop.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-01-11 21:05:11
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/classes.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-01-11 21:05:11
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Audio/Sound.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Graphics/Glyph.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/game_board.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-01-11 21:05:11
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.SUFFIXES:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+src/game_board.o: src/game_board.cpp src/game_board.cpp Resources/ThirdParty/include/SFML/System.hpp Resources/ThirdParty/include/SFML/Config.hpp Resources/ThirdParty/include/SFML/System 
+/Clock.hpp Resources/ThirdParty/include/SFML/System/Export.hpp Resources/ThirdParty/include/SFML/System/Time.hpp Resources/ThirdParty/include/SFML/System/Err.hpp Resources/ThirdParty/include/SFML/System/FileInputStream.hpp Resources/ThirdParty/include/SFML/System/InputStream.hpp Resources/ThirdParty/include/SFML/System/NonCopyable.hpp Resources/ThirdParty/include/SFML/System/Lock.hpp Resources/ThirdParty/include/SFML/System/MemoryInputStream.hpp Resources/ThirdParty/include/SFML/System/Mutex.hpp Resources/ThirdParty/include/SFML/System/Sleep.hpp Resources/ThirdParty/include/SFML/System/String.hpp Resources/ThirdParty/include/SFML/System/Utf.hpp Resources/ThirdParty/include/SFML/System/Utf.inl Resources/ThirdParty/include/SFML/System/String.inl Resources/ThirdParty/include/SFML/System/Thread.hpp Resources/ThirdParty/include/SFML/System/Thread.inl Resources/ThirdParty/include/SFML/System/ThreadLocal.hpp Resources/ThirdParty/include/SFML/System/ThreadLocalPtr.hpp Resources/ThirdParty/include/SFML/System/ThreadLocalPtr.inl Resources/ThirdParty/include/SFML/System/Vector2.hpp Resources/ThirdParty/include/SFML/System/Vector2.inl Resources/ThirdParty/include/SFML/System/Vector3.hpp Resources/ThirdParty/include/SFML/System/Vector3.inl Resources/ThirdParty/include/SFML/Window.hpp Resources/ThirdParty/include/SFML/Window/Clipboard.hpp Resources/ThirdParty/include/SFML/Window/Export.hpp Resources/ThirdParty/include/SFML/Window/Context.hpp Resources/ThirdParty/include/SFML/Window/GlResource.hpp Resources/ThirdParty/include/SFML/Window/ContextSettings.hpp Resources/ThirdParty/include/SFML/Window/Cursor.hpp Resources/ThirdParty/include/SFML/Window/Event.hpp Resources/ThirdParty/include/SFML/Window/Joystick.hpp Resources/ThirdParty/include/SFML/Window/Keyboard.hpp Resources/ThirdParty/include/SFML/Window/Mouse.hpp Resources/ThirdParty/include/SFML/Window/Sensor.hpp Resources/ThirdParty/include/SFML/Window/Touch.hpp Resources/ThirdParty/include/SFML/Window/VideoMode.hpp Resources/ThirdParty/include/SFML/Window/Window.hpp Resources/ThirdParty/include/SFML/Window/WindowHandle.hpp Resources/ThirdParty/include/SFML/Window/WindowStyle.hpp Resources/ThirdParty/include/SFML/Graphics.hpp Resources/ThirdParty/include/SFML/Graphics/BlendMode.hpp Resources/ThirdParty/include/SFML/Graphics/Export.hpp Resources/ThirdParty/include/SFML/Graphics/CircleShape.hpp Resources/ThirdParty/include/SFML/Graphics/Shape.hpp Resources/ThirdParty/include/SFML/Graphics/Drawable.hpp Resources/ThirdParty/include/SFML/Graphics/RenderStates.hpp Resources/ThirdParty/include/SFML/Graphics/Transform.hpp Resources/ThirdParty/include/SFML/Graphics/Rect.hpp Resources/ThirdParty/include/SFML/Graphics/Rect.inl Resources/ThirdParty/include/SFML/Graphics/Transformable.hpp Resources/ThirdParty/include/SFML/Graphics/VertexArray.hpp Resources/ThirdParty/include/SFML/Graphics/Vertex.hpp Resources/ThirdParty/include/SFML/Graphics/Color.hpp Resources/ThirdParty/include/SFML/Graphics/PrimitiveType.hpp Resources/ThirdParty/include/SFML/Graphics/ConvexShape.hpp Resources/ThirdParty/include/SFML/Graphics/Font.hpp Resources/ThirdParty/include/SFML/Graphics/Glyph.hpp Resources/ThirdParty/include/SFML/Graphics/Texture.hpp Resources/ThirdParty/include/SFML/Graphics/Image.hpp Resources/ThirdParty/include/SFML/Graphics/RectangleShape.hpp Resources/ThirdParty/include/SFML/Graphics/RenderTarget.hpp Resources/ThirdParty/include/SFML/Graphics/View.hpp Resources/ThirdParty/include/SFML/Graphics/RenderTexture.hpp Resources/ThirdParty/include/SFML/Graphics/RenderWindow.hpp Resources/ThirdParty/inclu 
+de/SFML/Graphics/Shader.hpp Resources/ThirdParty/include/SFML/Graphics/Glsl.hpp Resources/ThirdParty/include/SFML/Graphics/Glsl.inl Resources/ThirdParty/include/SFML/Graphics/Sprite.hpp Resources/ThirdParty/include/SFML/Graphics/Text.hpp Resources/ThirdParty/include/SFML/Graphics/VertexBuffer.hpp Resources/ThirdParty/include/SFML/Audio.hpp Resources/ThirdParty/include/SFML/Audio/InputSoundFile.hpp Resources/ThirdParty/include/SFML/Audio/Export.hpp Resources/ThirdParty/include/SFML/Audio/Listener.hpp Resources/ThirdParty/include/SFML/Audio/Music.hpp Resources/ThirdParty/include/SFML/Audio/SoundStream.hpp Resources/ThirdParty/include/SFML/Audio/SoundSource.hpp Resources/ThirdParty/include/SFML/Audio/AlResource.hpp Resources/ThirdParty/include/SFML/Audio/OutputSoundFile.hpp Resources/ThirdParty/include/SFML/Audio/Sound.hpp Resources/ThirdParty/include/SFML/Audio/SoundBuffer.hpp Resources/ThirdParty/include/SFML/Audio/SoundBufferRecorder.hpp Resources/ThirdParty/include/SFML/Audio/SoundRecorder.hpp Resources/ThirdParty/include/SFML/Audio/SoundFileFactory.hpp Resources/ThirdParty/include/SFML/Audio/SoundFileFactory.inl Resources/ThirdParty/include/SFML/Audio/SoundFileReader.hpp Resources/ThirdParty/include/SFML/Audio/SoundFileWriter.hpp src/classes.hpp src/Math.hpp
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'src/game_board'
+#  Last modified 2022-01-11 21:06:48
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 21):
+	$(CXX) -c $< -o $@ $(CXX_FLAGS) $(CPP_FLAGS)
+
+# Not a target:
+src/main.d:
+#  Implicit rule search has been done.
+#  Last modified 2022-01-11 21:06:46
+#  File has been updated.
+#  Successfully updated.
+
+.PHONY: all clean
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/System/ThreadLocalPtr.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Graphics/BlendMode.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/System/Export.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Window/Export.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Resources/ThirdParty/include/SFML/Window/Window.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2018-05-08 21:40:18
+#  File has been updated.
+#  Successfully updated.
+
+# files hash-table stats:
+# Load=121/1024=12%, Rehash=0, Collisions=56/728=8%
+# VPATH Search Paths
+
+# No 'vpath' search paths.
+
+# No general ('VPATH' variable) search path.
+
+# strcache buffers: 1 (0) / strings = 143 / storage = 5544 B / 
+ avg = 38 B
+# current buf: size = 8174 B / used = 5544 B / count = 143 / avg = 38 B
+
+# strcache performance: lookups = 654 / hit rate = 78%
+# hash-table stats:
+# Load=143/8192=2%, Rehash=0, Collisions=6/654=1%
+# Finished Make data base on Tue Jan 11 21:11:38 2022
+
+ 

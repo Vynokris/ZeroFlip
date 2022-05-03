@@ -1,0 +1,5 @@
+make.exe all --dry-run --keep-going --print-directory
+make: Entering directory 'd:/Documents/Coding/Cpp/ZeroFlip'
+g++ src/main.o src/Math.o src/card.o src/game_board.o src/indicator.o src/shop.o src/ui.o -o zero_flip -O0 -g -m32 -std=c++17 -lm -Wall -Wextra -Wno-unused-parameter -Wno-unused-variable -I./Resources/ThirdParty/include -MMD -L./Resources/ThirdParty/lib -lsfml-graphics -lsfml-window -lsfml-system -lopengl32 -lwinmm -lgdi32
+make: Leaving directory 'd:/Documents/Coding/Cpp/ZeroFlip'
+ 
