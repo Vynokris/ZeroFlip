@@ -15,7 +15,7 @@ int Math::ceilInt(double val)     { return (int)ceil(val); }
 double Math::sqpow(double val)    { return val * val; }
 
 // Returns 1 if the given value is positive or null, and -1 if it is negative.
-int Math::signOf(double val)      { if (val == 0) return 1; return val / abs((int)val); }
+int Math::signOf(double val)      { if (val == 0) return 1; return val / std::abs((int)val); }
 
 // Converts the given angle from degrees to radians.
 double Math::degToRad(double deg) { return deg * (PI / 180.0f); }
